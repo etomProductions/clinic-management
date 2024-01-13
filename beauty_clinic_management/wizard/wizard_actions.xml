@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_invoice_appointment_wizard" model="ir.ui.view">
+			<field name="name">Invoice Appointment</field>
+			<field name="model">calender.invoice.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Invoice Appointment">
+				  	<script>
+						$(document).ready(function(){
+							$('.flex-sm-grow-0').css({'width': '100%'});
+						});
+					</script>
+					<group>
+						<group>
+							<field name="appointment_id" readonly="1" force_save="1" invisible="1"/>
+							<field name="patient_id" readonly="1" force_save="1" required="1"/>
+							<field name="doctor_id" readonly="1" force_save="1"  required="1" />
+						</group>
+					</group>
+					<group string="Services"/>
+						<field name="service_ids" nolabel="1" readonly="1" force_save="1">
+							<tree>
+								<field name="product_id"/>
+								<field name="amount"/>
+							</tree>
+						</field>
+					<newline/>
+					<group>
+						<group>
+							<field name="total_amount" readonly="1" force_save="1" />
+<!--							<field name="payment_due" readonly="1" force_save="1" />-->
+							<field name="current_payment" class="oe_inline" invisible="1"/>
+						</group>
+					</group>
+					<footer>
+						<button name="action_create_invoice" string="Create Invoice"
+								type="object" class="oe_highlight" />
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_payment_appointment_wizard" model="ir.ui.view">
+			<field name="name">Register Payment</field>
+			<field name="model">calender.payment.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Register Payment">
+				  	<script>
+						$(document).ready(function(){
+							$('.modal-content').css({'width': '800px', 'left':'126px'});
+						});
+					</script>
+					<group>
+						<group>
+							<field name="company_id" force_save="1" invisible="1"/>
+							<field name="appointment_id" force_save="1" invisible="1"/>
+							<field name="journal_id" force_save="1" widget="selection" required="1"/>
+							<field name="partner_bank_id" force_save="1"/>
+						</group>
+						<group>
+							<field name="amount" force_save="1"/>
+							<field name="payment_date" force_save="1"/>
+							<field name="communication" force_save="1"/>
+						</group>
+					</group>
+					<footer>
+						<button name="action_create_payment" string="Create Payment"
+								type="object" class="oe_highlight" />
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_notes_appointment_wizard" model="ir.ui.view">
+			<field name="name">Notes Appointment</field>
+			<field name="model">calender.notes.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Invoice Appointment">
+				  	<script>
+						$(document).ready(function(){
+							$('.modal-content').css({'width': '850px', 'left':'166px'});
+						});
+					</script>
+					<group>
+						<group colspan="8">
+							<field name="appointment_id" readonly="1" force_save="1"/>
+							<field name="notes" required="1" force_save="1" attrs="{'readonly':[('is_notes','!=',False),('edit_notes','=',False)]}"/>
+							<field name="edit_notes" force_save="1" invisible="1"/>
+							<field name="is_notes" force_save="1" invisible="1"/>
+						</group>
+					</group>
+					<hr/>
+					<p>Notes History : </p>
+					<field name="note_ids" readonly="1">
+							<tree readonly="1">
+								<field name="user_id"/>
+								<field name="update_date"/>
+								<field name="last_notes"/>
+								<field name="update_notes"/>
+							</tree>
+						</field>
+					<footer>
+						<button name="action_create_notes" string="Submit"
+								type="object" class="oe_highlight" attrs="{'invisible':[('is_notes','!=',False),('edit_notes','=',False)]}"/>
+						<button name="action_edit_notes" string="Edit"
+								type="object" class="oe_highlight" attrs="{'invisible':['|',('is_notes','=',False),('edit_notes','!=',False)]}"/>
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_medical_notes_message_wizard" model="ir.ui.view">
+			<field name="name">Notes</field>
+			<field name="model">medical.notes.message</field>
+			<field name="arch" type="xml">
+				<form>
+				  	<script>
+						$(document).ready(function(){
+							$('.modal-content').css({'width': '650px', 'left':'166px'});
+						});
+					</script>
+					<p class="alert alert-success">
+						 <field name="name" readonly="1"/>
+					</p>
+					<footer>
+						<button name="action_submit" string="Ok"
+								type="object" class="oe_highlight"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_calender_appointment_wizard">
+			<field name="name">Appointment Create</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">calender.appointment.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<record id="view_calender_appointment_wizard" model="ir.ui.view">
+			<field name="name">Appointment</field>
+			<field name="model">calender.appointment.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Appointment">
+				  	<script>
+						$(document).ready(function(){
+							$('.modal-content').css({'width': '650px', 'left':'166px'});
+						});
+					</script>
+					<group>
+						<group colspan="8">
+							<field name="appointment_id" invisible="1"/>
+							<field name="patient_id" required="1"/>
+							<field name="mobile_number" required="1" />
+							<field name="civil_id"/>
+							<field name="duration_id" invisible="1"/>
+							<field name="appointment_sdate"/>
+							<field name="appointment_edate" invisible="1"/>
+							<field name="from_time" widget="float_time"  required="1" readonly="1" force_save="1"/>
+							<field name="to_time" widget="float_time"  required="1" readonly="1" force_save="1"/>
+							<field name="doctor_id"  required="1" />
+							<field name="service_ids" domain="[('is_treatment', '=', True), ('type','=','service')]"  required="1"  widget="many2many_tags"/>
+						</group>
+					</group>
+					<footer>
+						<button invisible="context.get('recordCreated') == 'created'" name="action_create" string="Create"
+								type="object" icon="fa-plus text-success" />
+						<button invisible="context.get('recordCreated') != 'created'" name="action_edit" string="Save"
+								type="object" class="oe_highlight" />
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_calender_appointment_wizard">
+			<field name="name">Appointment Create</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">calender.appointment.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+
+		<record id="view_income_by_doctor_form" model="ir.ui.view">
+			<field name="name">Income By Doctor</field>
+			<field name="model">income.by.doctor.report.wizard</field>
+			<field name="arch" type="xml">
+				<form string="By Doctor">
+					<separator string="Fill The Dates" colspan="4" />
+					<group colspan="4" col='4'>
+						<field name="start_date" />
+						<field name="end_date" />
+					</group>
+					<footer>
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger" />
+						<button name="income_by_doctor_report" string="Print Report"
+							type="object" icon="fa-arrow-right text-success" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_income_by_doctor_report">
+			<field name="name">Income By Doctor</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">income.by.doctor.report.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<record id="view_patient_by_doctor_form" model="ir.ui.view">
+			<field name="name">By patient</field>
+			<field name="model">patient.by.doctor.report.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="By Patient">
+					<separator string="Fill The Dates" colspan="4" />
+					<group colspan="4" col='4'>
+						<field name="start_date" />
+						<field name="end_date" />
+					</group>
+					<footer>
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger" />
+						<button name="patient_by_doctor_report" string="Print Report"
+							type="object" icon="fa-arrow-right text-success" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="income_by_procedure_new_view">
+			<field name="name">income.by.procedure.wizard.form</field>
+			<field name="model">income.by.procedure.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Report Wizard" version="7.0">
+					<separator string="Fill The Dates" colspan="4" />
+					<group colspan="4" col="4">
+						<field name="date_start" />
+						<field name="date_end" />
+					</group>
+					<footer>
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger" />
+						<button name="print_report" string="Print Report" type="object"
+							icon="fa-arrow-right text-success" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="patient_by_procedure_new_view">
+			<field name="name">patient.by.procedure.wizard.form</field>
+			<field name="model">patient.by.procedure.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Report Wizard" version="7.0">
+					<separator string="Fill The Dates" colspan="4" />
+					<group colspan="4" col="4">
+						<field name="date_start" />
+						<field name="date_end" />
+					</group>
+					<footer>
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger" />
+						<button name="print_report" string="Print Report" type="object"
+							icon="fa-arrow-right text-success" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="income_by_insurance_company_new_view">
+			<field name="name">income.by.insurance.company.wizard.form</field>
+			<field name="model">income.by.insurance.company.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Report Wizard" version="7.0">
+					<separator string="Fill The Dates" colspan="4" />
+					<group colspan="4" col="4">
+						<field name="date_start" />
+						<field name="date_end" />
+						<field name="insurance_company" domain="[('is_insurance_company','=',True)]" />
+					</group>
+					<footer>
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger" />
+						<button name="print_report" string="Print Report" type="object"
+							icon="fa-arrow-right text-success" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="claim_wizard_form_view">
+			<field name="name">Claim Wizard</field>
+			<field name="model">dental.claim.wizard</field>
+			<!-- <field name="type">form</field> -->
+			<field name="arch" type="xml">
+				<form string="Claim Wizard">
+					<group colspan="2" col="2">
+						<field name="from_date" required="1" />
+						<field name="to_date" required="1" />
+					</group>
+					<footer>
+						<button string="Generate PDF" type="object" name="print_report"
+							icon="fa-arrow-right text-success" />
+						<button string="Generate XLS" type="object" name="generate_backlog_excel_report"
+							icon="fa-arrow-right text-success" />
+						<button special="cancel" string="Cancel"
+							icon="fa-times-circle text-danger" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+
+
+
+		<record model="ir.actions.act_window" id="action_patient_by_doctor_report">
+			<field name="name">Patient By Doctor</field>
+			<field name="res_model">patient.by.doctor.report.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+<!--		<menuitem action="action_income_by_doctor_report" name="Income By Doctor"-->
+<!--			id="income_by_doctor_submenu" parent="dental_report_menu" sequence="1" />-->
+<!--		<menuitem action="action_patient_by_doctor_report" name="Patient By Doctor"-->
+<!--			id="patient_by_doctor_submenu" parent="dental_report_menu" sequence="3" />-->
+
+
+
+		<record id="action_income_by_procedure_wizard_report" model="ir.actions.act_window">
+			<field name="name">Income By Procedure</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">income.by.procedure.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+<!--		<menuitem id="menu_action_income_by_procedure_report" action="action_income_by_procedure_wizard_report"-->
+<!--			parent="dental_report_menu" sequence="2" />-->
+
+
+		<record id="action_patient_by_procedure_wizard_report" model="ir.actions.act_window">
+			<field name="name">Patient By Procedure</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">patient.by.procedure.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+<!--		<menuitem id="menu_action_patient_by_procedure_report"-->
+<!--			action="action_patient_by_procedure_wizard_report" parent="dental_report_menu"-->
+<!--			sequence="4" />-->
+
+
+		<record id="action_income_by_insurance_company_wizard_report"
+			model="ir.actions.act_window">
+			<field name="name">Income By Insurance Company</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">income.by.insurance.company.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+<!--		<menuitem id="menu_action_income_by_insurance_company_report"-->
+<!--			action="action_income_by_insurance_company_wizard_report" parent="dental_report_menu"-->
+<!--			sequence="5" />-->
+
+		<record model="ir.actions.act_window" id="claim_mgmt_wizard_view">
+			<field name="name">Claim Wizard</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">dental.claim.wizard</field>
+			<field name="view_mode">form</field>
+			<!-- <field name="view_id" ref="claim_report_form_view" /> -->
+			<field name="target">new</field>
+		</record>
+
+		<menuitem name="Claim Report" action="claim_mgmt_wizard_view"
+			id="claim_wizard_mgmt" parent="claim_form_mgmt" sequence="1" />
+
+	</data>
+</odoo>

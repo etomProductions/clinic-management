@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_patient_financing_agreement_document">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-2"/>
+                        <div class="col-8" style="font-size: 27px; font-weight: bold;">
+                            <strong>PATIENT FINANCING AGREEMENT</strong>
+                        </div>
+                    </div>
+                    <br/>
+                    <p>I agree to pay for the services rendered by ISmile Beauty Clinic, as indicated below.</p>
+                    <table class="table table-striped" width="100%">
+                        <tr>
+                            <td colspan="2">Type of Service :
+                                <span t-field="doc.type_of_service"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date of Service :
+                                <span t-field="doc.date_of_service"/>
+                            </td>
+                            <td>Total amount to be financed :
+                                <span t-field="doc.total_amount_to_be_financed"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Date to be paid :
+                                <span t-field="doc.date_to_be_paid"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <span style="font-weight: bold;">Payment schedule as follows:</span>
+                    <table width="100%">
+                        <tr t-foreach='doc.payment_id' t-as='payment'>
+                            <td style="color: black;border: 1px solid black;">Date :
+                                <span t-esc="payment.date"/>
+                            </td>
+                            <td style="color: black;border: 1px solid black;">Amount to be paid :
+                                <span t-esc="payment.amount_to_be_paid"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <t t-if="doc.is_credit_card">
+                        <p>
+                            <span t-field="doc.payment_by_cash_check"/>
+                            Payments will be made by cash or check
+                        </p>
+                        <p>
+                            <span t-field="doc.payment_by_credit_card"/>
+                            Payments will be made by credit card, which I authorize you to use:
+                        </p>
+                        <strong style="font-weight : bold">Credit Card:</strong>
+                        <table width="100%">
+                            <tr>
+                                <td style="color: black;border: 1px solid black;">
+                                    <span t-field="doc.credit_card_type"/>
+                                </td>
+                                <td style="color: black;border: 1px solid black;">
+                                    <span t-field="doc.credit_card_number"/>
+                                </td>
+                                <td style="color: black;border: 1px solid black;">Exp :<span
+                                        t-field="doc.expiry_month"/>/
+                                    <span t-field="doc.expiry_year"/>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br/>
+
+                        <p>Name as appears on card :
+                            <span t-field="doc.name_as_appears_on_card"/>
+                        </p>
+                    </t>
+                    <p>It is understood that if the patient misses payments, without prior notification and agreement,
+                        the practice reserves the right to transfer collections to a collection agency.
+                    </p>
+                    <p>I understand that by signing this Financial Agreement form, I agree to all the above. I am
+                        ultimately responsible in full for all charges and balances on my account(s) for all services
+                        rendered, to ISmile Beauty Clinic. A copy of this agreement will be provided upon request.
+                    </p>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-7">
+                            <strong class="px-1">Name of Patient:</strong>
+                            <strong class="px-2">:</strong>
+                            <span t-field="doc.name.partner_id"/>
+                        </div>
+                        <div class="col-5">
+                            <strong class="px-1">Phone:</strong>
+                            <strong class="px-2">:</strong>
+                            <span t-field="doc.name.mobile"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-7">
+                            <strong>Patient Signature:</strong>
+                        </div>
+                        <div class="col-5">
+                            <strong>Date</strong>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_patient_financing_agreement">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="beauty_clinic_management.report_patient_financing_agreement_document"
+                       t-lang="doc.name.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

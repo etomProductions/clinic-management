@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_appointment_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.doctor.res_partner_medical_physician_id.lang})"/>
+                <!-- <t t-foreach="docs" t-as="doc" > -->
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-3"/>
+                        <div class="col-8" style="font-size: 27px; font-weight: bold;">
+                            <strong>APPOINTMENT INFORMATION</strong>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <table  class="table table-striped">
+                        <tr>
+                            <td width="25%" style="border: 1px solid black;">
+                                <strong>Patient:</strong>
+                            </td>
+                            <td width="25%" style="border: 1px solid black;">
+                                <span t-field="doc.patient.partner_id.name"/>
+                            </td>
+                            <td width="25%" style="border: 1px solid black;">
+                                <strong>Appointment:</strong>
+                            </td>
+                            <td width="25%" style="border: 1px solid black;">
+                                <span t-field="doc.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <strong>SSN:</strong>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <span t-field=" doc.patient.partner_id.ref"/>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <strong>Date:</strong>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <span t-field="doc.appointment_sdate"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <strong>Instructions / Notes :</strong>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <span t-field="doc.comments"/>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <strong>Institution :</strong>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <span t-field="doc.doctor.institution.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <strong>Specialty :</strong>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <span t-field="doc.doctor.speciality.name"/>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <strong>Health Professional :</strong>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <span t-field="doc.doctor.res_partner_medical_physician_id.name"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+            <!-- </t> -->
+        </template>
+        <template id="report_appointment">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="beauty_clinic_management.report_appointment_document"
+                       t-lang="doc.doctor.res_partner_medical_physician_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

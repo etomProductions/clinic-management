@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+	<t t-name="HumanBodyChartView">
+		<div style="width:1250pt; height:1000%;">
+		<meta charset="utf-8"/>
+            <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+            <div class="chart_view_dashboard" style="width:100%; height:1000px">
+			<div>
+				<button id="close_screen" class="close" name="Close">
+					Close
+				</button>
+			</div>
+                <h1 class="mt-5" style="text-align:center;">
+				Human Body Chart
+			</h1>
+                <center>
+				<div class="eye">
+					<img class="body_image" id="body_image" usemap="#bodymap" name="Human body"
+                         src="/beauty_clinic_management/static/src/img/humanbody.jpg"
+                         style="height: 345px;width: 163px;"/>
+				</div>
+			</center>
+                <map class="map" name="bodymap">
+				<area shape="rect" class="body_part" id="head" data-toggle="tooltip" name="Head" coords="70,10,110,20"
+                      href="" alt="head"/>
+                    <area shape="rect" class="body_part" id="face" data-toggle="tooltip" name="Face"
+                          coords="70,22,110,40" href="" alt="face"/>
+                    <area shape="rect" class="body_part" id="lefthand" data-toggle="tooltip" name="Left Hand"
+                          coords="30,60,45,200" href="" alt="lefthand"/>
+                    <area shape="rect" class="body_part" id="righthand" data-toggle="tooltip" name="Right Hand"
+                          coords="0,150,345,163" href="" alt="righthand"/>
+                    <!-- <area shape="rect" id="leftleg" data-toggle="tooltip" name="leftleg" coords="70,10,110,20" href="https://www.istockphoto.com/photos/human-body-anatomy" alt="leftleg"/> -->
+                    <area shape="rect" class="body_part" id="rightleg" data-toggle="tooltip" name="Right Leg"
+                          coords="80,150,140,365" href="" alt="rightleg"/>
+			</map>
+                <center>
+				<span class="part_selected" id="part_selected">
+				</span>
+			</center>
+                <!-- <table id="operation_table_main" height="300px">
+                    <thead>
+                        <tr>
+                            <th id="treatment">
+                                Treatment
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="operation_table_body">
+                        <tr>
+                            <td>TD
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> -->
+		</div>
+		</div>
+	</t>
+</template>

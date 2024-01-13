@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<template id="inherited_assets" inherit_id="web.assets_backend" name="Inherited assets backend">
+			<xpath expr="." position="inside">
+		        <script type="text/javascript" src="/beauty_clinic_management/static/src/js/widgets.js"></script>
+		        <script type="text/javascript" src="/beauty_clinic_management/static/src/js/chart_action.js"></script>
+				<script type="text/javascript" src="/beauty_clinic_management/static/src/js/face_body_action.js"></script>
+				<script type="text/javascript" src="/beauty_clinic_management/static/src/js/calendar.js"></script>
+		        <script type="text/javascript" src="/beauty_clinic_management/static/src/js/image_action.js"></script>
+		        <script type="text/javascript" src="/beauty_clinic_management/static/src/js/render.js"></script>
+		        <link rel="stylesheet" href="/beauty_clinic_management/static/src/css/base_new.css" />
+		    </xpath>
+		</template>		
+	</data>
+</odoo>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="dental">
+        <div role="dialog" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <header class="modal-header">
+                        <h4 class="modal-title">Medical Alert</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                    </header>
+                    <main class="modal-body">
+                        <t t-esc="msg"></t>
+                    </main>
+                    <footer class="modal-footer">
+                        <a role="button" href="#" class="btn btn-link btn-sm" data-dismiss="modal">Close</a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="beauty_clinic_management.mypopup">
+        <div class="DisplayDoctorTimeslot mt24 alert alert-warning" style="display:none" role="alert"/>
+    </t>
+
+    <t t-name="CalendarView.quick_create" class="o_calendar_quick_create">
+        <div class="o_hr_attendance_warning_message mt24 alert alert-warning" style="display:none" role="alert"/>
+        <t t-if="widget.currentModelName == 'medical.appointment'">
+            <div class="form-group">
+                <label for='name' class='col-form-label o_form_label'>Patient:</label><br/>
+                <select style="width: -webkit-fill-available;" name="patient" class="mdb-select md-form patient_list" required="1">
+                </select><br/>
+
+                <label for='mobile' class='col-form-label o_form_label'>Mobile No:</label>
+                <input type='text' name='mobile' disabled="1" class="o_input o_required_modifier disabled mobile_no"/>
+                <label for='mobile' class='col-form-label o_form_label'>Civil ID:</label>
+                <input type='text' name='civil' disabled="1" class="o_input o_required_modifier civil_id"/>
+                <label for='mobile' class='col-form-label o_form_label'>Duration:</label>
+                <select style="width: -webkit-fill-available;" name="duration" class="mdb-select md-form duration_list" required="true">
+                </select>
+                <div class="row">
+                    <div class="col-6">
+                        From : <br/><input type="time" t-att-id="widget.default_appointment_sdate" readonly="1" name='from_duration' class="o_input o_required_modifier" t-att-value="widget.from_duration"/>
+                    </div>
+                    <div class="col-6">
+                        To : <br/><input type="time" readonly="1" name='to_duration' class="o_input o_required_modifier" t-att-value="widget.to_duration"/>
+                    </div>
+                </div>
+                <label for='mobile' class='col-form-label o_form_label'>Doctor:</label>
+                <input type='text' name='doctor' class="o_input o_required_modifier" t-att-value="widget.civil_id"/>
+            </div>
+        </t>
+        <t t-else="">
+            <div class="form-group">
+                <label for='name' class='col-form-label o_form_label'>Summary:</label>
+                <input type='text' name='name' class="o_input o_required_modifier" t-att-value="widget.dataTemplate.name or None"/>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="skhealth_caremanagement.dashboard_calendar_header_1">
+        <div class="o_calendar_cust_container d-flex" style="margin-left: 5%;display: flex;">
+            <div t-foreach="calendar_custs" t-as="calendar_cust"
+                 style="
+                    text-align: center;
+                    padding: 30px;
+                    border-right: 1px solid;
+                    width:13%;"
+                 >
+                <span style="color: blue;font-size: 16px;">
+                    <strong t-esc="calendar_cust['name']" class="o_calendar_cust_big o_calendar_cust_purple"/>
+                    (<strong t-esc="calendar_cust['count']"/>)
+                </span>
+                <div class="mt-2" style="font-size: 14px;">
+                    <div t-foreach="calendar_cust['time_slots']" t-as="slot">
+                        <span t-esc="slot['start_hour']" class="o_calendar_cust_big o_calendar_cust_purple"/> to
+                        <span t-esc="slot['end_hour']" class="o_calendar_cust_big o_calendar_cust_purple"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-inherit="web.CalendarCommonPopover.footer" t-inherit-mode="extension" owl="1">
+        <xpath expr="//a[hasclass('o_cw_popover_edit')]" position="after">
+            <style>
+                .o_cw_body {
+                    max-width: 328px;
+                }
+            </style>
+            <a t-attf-class="btn btn-success o_cw_popover_invoice_m ms-2 {{ canInvoice ? 'disabled' : '' }}" style="color:#FFFFFF" t-on-click="_onClickInvoiceOpen">Create Invoice</a>
+            <a t-attf-class="btn btn-info o_cw_popover_payment_m ms-2 {{ canPayment ? 'disabled' : '' }}" style="color:#FFFFFF" t-on-click="_onClickPaymentOpen">Register Payment</a>
+            <a class="btn o_cw_popover_note_m mt8 ms-2" style="background-color:#FFA500;color:#FFFFFF" t-on-click="_onClickNotesOpen">Notes</a>
+            <a class="btn btn-info o_cw_popover_chart_m mt8 ms-2" style="background-color:darkgreen;color:#FFFFFF" t-on-click="_onClickChartOpen">Face/Body Chart</a>
+        </xpath>
+    </t>
+
+    <!-- <t t-inherit="web.PopoverWowl" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_popover')]" position="replace">
+            <div role="tooltip" class="o_popover popover shadow-sm"
+                t-att-class="props.popoverClass"
+                t-ref="popper"
+                t-att-popover-id="props.id"
+            >
+                <div class="popover-arrow"/>
+                <t t-slot="default" />
+            </div>
+        </xpath>
+    </t> -->
+
+</templates>

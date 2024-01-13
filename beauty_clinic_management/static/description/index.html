@@ -1,0 +1,1686 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	
+<style>
+/* /loempia/static/src/css/description.css defined in bundle 'web.assets_frontend' */
+.oe_styling_v8 {
+    font-family: "Open Sans", "Helvetica", Sans;
+    font-weight: 300;
+    color: #646464;
+    background: white;
+    font-size: 16px;
+}
+.oe_styling_v8 .oe_website_contents {
+    background: whitesmoke;
+    padding-bottom: 1px;
+}
+.oe_styling_v8 b {
+    font-weight: 600;
+}
+.oe_styling_v8 a {
+    color: #21B799;
+    text-decoration: none;
+}
+.oe_styling_v8 a.btn {
+    color: white;
+}
+.oe_styling_v8 .oe_title_font {
+    font-family: "Lato", "Open Sans", "Helvetica", Sans;
+}
+.oe_styling_v8 .oe_page {
+    background: white;
+    overflow: hidden;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    -o-border-radius: 1px;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.oe_styling_v8 .oe_emph {
+    font-weight: 400;
+}
+.oe_styling_v8 .oe_dark {
+    overflow: hidden;
+    background: #efefef;
+    box-shadow: none;
+}
+.oe_page {
+    margin: 0px auto 64px auto;
+    max-width: 992px;
+}
+.oe_row {
+    width: 928px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.oe_row.oe_fit {
+    width: auto;
+}
+.oe_clearfix:after, .oe_row:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+[class*='oe_span'] {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 16px;
+}
+.oe_span12 {
+    width: 928px;
+}
+.oe_span10 {
+    width: 773px;
+}
+.oe_span9 {
+    width: 696px;
+}
+.oe_span8 {
+    width: 618px;
+}
+.oe_span6 {
+    width: 464px;
+}
+.oe_span4 {
+    width: 309px;
+}
+.oe_span3 {
+    width: 232px;
+}
+.oe_span2 {
+    width: 154px;
+}
+[class*='oe_span'].oe_fit {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+[class*='oe_span'].oe_right {
+    float: right;
+}
+.oe_row.oe_flex [class*='oe_span'] {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: auto;
+}
+.oe_row.oe_flex .oe_span12 {
+    max-width: 928px;
+}
+.oe_row.oe_flex .oe_span10 {
+    max-width: 769px;
+}
+.oe_row.oe_flex .oe_span9 {
+    max-width: 692px;
+}
+.oe_row.oe_flex .oe_span8 {
+    max-width: 614px;
+}
+.oe_row.oe_flex .oe_span6 {
+    max-width: 460px;
+}
+.oe_row.oe_flex .oe_span4 {
+    max-width: 305px;
+}
+.oe_row.oe_flex .oe_span3 {
+    max-width: 228px;
+}
+.oe_row.oe_flex .oe_span2 {
+    max-width: 150px;
+}
+.oe_mb0 {
+    margin-bottom: 0px !important;
+}
+.oe_mb4 {
+    margin-bottom: 4px !important;
+}
+.oe_mb8 {
+    margin-bottom: 8px !important;
+}
+.oe_mb16 {
+    margin-bottom: 16px !important;
+}
+.oe_mb32 {
+    margin-bottom: 32px !important;
+}
+.oe_mb48 {
+    margin-bottom: 48px !important;
+}
+.oe_mb64 {
+    margin-bottom: 64px !important;
+}
+.oe_mt0 {
+    margin-top: 0px !important;
+}
+.oe_mt4 {
+    margin-top: 4px !important;
+}
+.oe_mt8 {
+    margin-top: 8px !important;
+}
+.oe_mt16 {
+    margin-top: 16px !important;
+}
+.oe_mt32 {
+    margin-top: 32px !important;
+}
+.oe_mt48 {
+    margin-top: 48px !important;
+}
+.oe_mt64 {
+    margin-top: 64px !important;
+}
+.oe_mb0 {
+    margin-bottom: 0px !important;
+}
+.oe_mb4 {
+    margin-bottom: 4px !important;
+}
+.oe_mb8 {
+    margin-bottom: 8px !important;
+}
+.oe_mb16 {
+    margin-bottom: 16px !important;
+}
+.oe_mb32 {
+    margin-bottom: 32px !important;
+}
+.oe_mb64 {
+    margin-bottom: 64px !important;
+}
+.oe_rightfit {
+    padding-right: 0px !important;
+}
+.oe_leftfit {
+    padding-left: 0px !important;
+}
+.oe_leftalign {
+    text-align: left;
+}
+.oe_rightalign {
+    text-align: right;
+}
+.oe_centeralign {
+    text-align: center;
+}
+.oe_centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+.oe_hidden {
+    display: none !important;
+    opacity: 0 !important;
+}
+.oe_invisible {
+    visibility: hidden !important;
+}
+.oe_transparent {
+    opacity: 0 !important;
+}
+.oe_spaced {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.oe_more_spaced {
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+.oe_padded {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.oe_more_padded {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+.oe_button {
+    position: relative;
+    bottom: 0;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.oe_styling_v8 .oe_button, .oe_styling_v8 a.oe_button {
+    padding: 8px 14px;
+    background: #21B799;
+    color: white;
+    -webkit-transition-property: bottom, background;
+    -moz-transition-property: bottom, background;
+    -o-transition-property: bottom, background;
+    transition-property: bottom, background;
+    -webkit-transition-duration: 250ms;
+    -moz-transition-duration: 250ms;
+    -o-transition-duration: 250ms;
+    transition-duration: 250ms;
+}
+.oe_styling_v8 .oe_button:hover, .oe_styling_v8 a.oe_button:hover, .oe_styling_v8 .oe_button:active, .oe_styling_v8 a.oe_button:active {
+    background: #1b9f85;
+}
+.oe_styling_v8 .oe_button.oe_big, .oe_styling_v8 a.oe_button.oe_big {
+    font-size: 24px;
+}
+.oe_styling_v8 .oe_button.oe_bigger, .oe_styling_v8 a.oe_button.oe_bigger {
+    font-size: 32px;
+}
+.oe_styling_v8 .oe_button.oe_small, .oe_styling_v8 a.oe_button.oe_small {
+    font-size: 13px;
+    padding: 2px 4px;
+}
+.oe_styling_v8 .oe_button.oe_medium, .oe_styling_v8 a.oe_button.oe_medium {
+    padding: 5px 12px;
+    font-size: 16px;
+}
+.oe_styling_v8 .oe_button.oe_tacky, .oe_styling_v8 a.oe_button.oe_tacky {
+    background: #34495E;
+}
+.oe_styling_v8 .oe_button.oe_tacky:hover, .oe_styling_v8 a.oe_button.oe_tacky:hover, .oe_styling_v8 .oe_button.oe_tacky:active, .oe_styling_v8 a.oe_button.oe_tacky:active {
+    background: #253544;
+}
+.oe_styling_v8 .oe_button.oe_disabled, .oe_styling_v8 a.oe_button.oe_disabled {
+    background: #c8c8c8;
+    cursor: default;
+}
+.oe_styling_v8 .oe_button.oe_disabled:hover, .oe_styling_v8 a.oe_button.oe_disabled:hover, .oe_styling_v8 .oe_button.oe_disabled:active, .oe_styling_v8 a.oe_button.oe_disabled:active {
+    background: #c8c8c8;
+}
+.oe_styling_v8.oe_styling_black .oe_button {
+    -webkit-box-shadow: 0px 2px 0px #463555;
+    -moz-box-shadow: 0px 2px 0px #463555;
+    box-shadow: 0px 2px 0px #463555;
+}
+.oe_styling_v8 {
+}
+.oe_styling_v8 .oe_input {
+    padding: 4px 7px;
+    border-radius: 3px;
+    border: solid 1px #d6d6d6;
+    box-shadow: 0px 2px #e6e6e6;
+    background: #fafafa;
+    font-weight: 300;
+    outline: none;
+    -webkit-transition: all 150ms linear;
+    -moz-transition: all 150ms linear;
+    -o-transition: all 150ms linear;
+    transition: all 150ms linear;
+}
+.oe_styling_v8 .oe_input:focus {
+    border: solid 1px #969696;
+    box-shadow: 0px 2px #d2d2d2;
+}
+.oe_styling_v8 .oe_input.oe_valid {
+    background: #f2ffec;
+    border-color: #b1ebb6;
+    box-shadow: 0px 2px #e1f8e1;
+    color: #0f610f;
+}
+.oe_styling_v8 .oe_input.oe_invalid {
+    background: #fff2f2;
+    border-color: #ebb1b1;
+    box-shadow: 0px 2px #f8e1e1;
+    color: #610f0f;
+}
+.oe_styling_v8 .oe_input.oe_big {
+    padding: 8px 14px;
+}
+.oe_styling_v8 .oe_input_label {
+    font-weight: 300;
+    font-size: 16px;
+}
+.oe_styling_v8 .oe_input_label.oe_big {
+    font-size: 20px;
+}
+.oe_styling_v8 .oe_textarea {
+    width: 300px;
+    height: 80px;
+}
+.oe_styling_v8 .oe_form_layout_table {
+    width: 100%;
+}
+.oe_styling_v8 .oe_form_layout_table td {
+    padding-bottom: 16px;
+}
+.oe_styling_v8 .oe_form_layout_table td:first-child {
+    text-align: right;
+    padding-right: 16px;
+}
+.text-alpha {
+    color: #A24689 !important;
+}
+.oe_styling_v8 .oe_slogan {
+    color: #333333;
+    font-family: "Lato", "Open Sans", "Helvetica", Sans;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+.oe_styling_v8 h1.oe_slogan {
+    font-size: 64px;
+    font-weight: 900;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+.oe_styling_v8 h2.oe_slogan {
+    font-size: 40px;
+    font-weight: 300;
+}
+.oe_styling_v8 h3.oe_slogan {
+    font-size: 26px;
+    font-weight: 300;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: 0.5;
+}
+.oe_styling_v8 h4.oe_slogan {
+    font-size: 24px;
+    font-weight: 300;
+}
+.oe_styling_v8 h4.oe_slogan:before, .oe_styling_v8 h4.oe_slogan:after {
+    margin: 0 20px;
+    content: "";
+    display: inline-block;
+    width: 100px;
+    height: 0px;
+    border-top: solid 1px;
+    vertical-align: middle;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+    opacity: 0.3;
+}
+.oe_styling_v8 h5.oe_slogan {
+    font-weight: 300;
+}
+.oe_styling_v8 h2.oe_slogan + h3.oe_slogan {
+    margin-top: -28px;
+}
+.oe_quote {
+    margin: 8px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.02);
+    border: solid 1px rgba(0, 0, 0, 0.06);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+.oe_quote .oe_q, .oe_quote q {
+    margin: 10px;
+    display: block;
+    font-style: italic;
+    text-align: center;
+    font-size: 20px;
+}
+.oe_quote .oe_q:before, .oe_quote .oe_q:after, .oe_quote q:before, .oe_quote q:after {
+    content: '"';
+    font-weight: 900;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+}
+.oe_quote cite {
+    display: block;
+    font-style: normal;
+    margin-top: 16px;
+}
+.oe_quote .oe_photo {
+    float: left;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 16px;
+}
+.oe_quote .oe_author {
+    font-size: 20px;
+    padding-top: 6px;
+}
+.oe_dark .oe_quote {
+    background: white;
+    border: 1px solid #f0f0ff;
+}
+.oe_picture {
+    display: block;
+    max-width: 84%;
+    max-height: 400px;
+    margin: 16px 8%;
+}
+.oe_screenshot {
+    padding: 8px;
+    background-color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+}
+.oe_pic_ctr {
+    position: relative;
+}
+.oe_pic_ctr > img.oe_picture {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+}
+.oe_pic_ctr > .oe_title {
+    position: absolute;
+    top: 15px;
+    right: 38px;
+}
+.oe_styling_v8 .oe_pic_ctr > .oe_title {
+    font-size: 64px;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0px 2px 0px #494949, 0px 2px 5px rgba(0, 0, 0, 0.33), 0px 0px 60px rgba(0, 0, 0, 0.22);
+}
+div.oe_demo {
+    position: relative;
+    border: 1px solid #dedede;
+}
+div.oe_demo span.oe_demo_play {
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -40px;
+    display: block;
+    position: absolute;
+    background: url("/loempia/static/src/css/../img/layout/play-button.png") no-repeat left top transparent;
+    pointer-events: none;
+}
+div.oe_demo img {
+    max-width: 100%;
+    width: 100%;
+}
+div.oe_demo div.oe_demo_footer {
+    position: absolute;
+    left: 0;
+    background-color: rgba(162, 70, 137, 0.7);
+    opacity: 0.85;
+    bottom: -1px;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    pointer-events: none;
+}
+div.oe_demo:hover span.oe_demo_play {
+    background: url("/loempia/static/src/css/../img/layout/play-button-over.png") no-repeat left top transparent;
+}
+.oe_styling_v8 .oe_container.oe_separator {
+    height: 64px;
+    margin-bottom: 16px;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.02)));
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02));
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02));
+    background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02));
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02));
+    -webkit-box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset;
+    overflow-y: hidden;
+}
+.oe_row_tabs {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 21px;
+}
+.oe_row_tab {
+    position: relative;
+    min-width: 120px;
+    padding: 8px;
+    font-size: 20px;
+    display: inline-block;
+    margin: 0px -2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+    background: #fafafa;
+    background-image: +linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02));
+    box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset;
+    cursor: pointer;
+    -webkit-transition: all 250ms linear;
+    -moz-transition: all 250ms linear;
+    -o-transition: all 250ms linear;
+    transition: all 250ms linear;
+}
+.oe_row_tab:hover {
+    padding-bottom: 12px;
+    top: -4px;
+    background-color: white;
+}
+.oe_row_tab.oe_active {
+    background-color: white;
+    background-image: none;
+    box-shadow: none;
+    border-top-color: #8272b6;
+    border-top-width: 2px;
+    cursor: default;
+}
+.oe_row_tab.oe_active:hover {
+    padding-bottom: 8px;
+    top: 0asx;
+}
+.oe_calltoaction {
+    height: 32px;
+    margin-top: -32px;
+    position: relative;
+}
+.oe_styling_v8 .oe_slogan {
+    color: #333333;
+    font-family: "Lato", "Open Sans", "Helvetica", Sans;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+.oe_slogan {
+    text-align: center
+}
+.oe_dark {
+    overflow: hidden;
+    background: #efefef;
+    box-shadow: none;
+}
+.oe_styling_v8 .oe_dark {
+    overflow: hidden;
+    background: #efefef;
+    box-shadow: none;
+}
+.tab-content > .active {
+    display: block;
+    background: #FFFFFF;
+    color: #fff;
+    padding: 20px;
+}
+tabs .nav-link.active {
+    color: #fff;
+    background-color: #FFFFFF;
+    border-color: none;
+}
+nav-tabs .nav-link {
+    border: none;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.rounded-lg {
+    border-radius: 20px !important;
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+}
+/* accordion_section CSS Start  */
+
+#accordion_section .card {
+    margin-bottom: 10px;
+    border: 0;
+}
+#accordion_section .card .card-header {
+    border: 0;
+    -webkit-box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+    box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+    border-radius: 2px;
+    padding: 0;
+}
+#accordion_section .card .card-header .btn-header-link {
+    color: #fff;
+    display: block;
+    text-align: left;
+    background: #bfabcb;
+    color: #222;
+    padding: 20px;
+}
+#accordion_section .card .card-header .btn-header-link:after {
+    content: "\f107";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    float: right;
+}
+#accordion_section .card .card-header .btn-header-link.collapsed {
+    background: #8D89A6;
+    color: #fff;
+}
+#accordion_section .card .card-header .btn-header-link.collapsed:after {
+    content: "\f106";
+}
+#accordion_section .card .collapsing {
+    background: #bfabcb;
+    line-height: 30px;
+}
+#accordion_section .card .collapse {
+    border: 0;
+}
+#accordion_section .card .collapse.show {
+    background: #bfabcb;
+    line-height: 30px;
+    color: #222;
+    margin-top: -3px;
+}
+.accordion > .card:not(:last-of-type) {
+    border-bottom: 0;
+    border-bottom-right-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+}
+	
+	.table tr td{
+		vertical-align: middle;
+	}	
+	
+	.table tr td:nth-child(1){
+		width: 20%;
+	}
+	
+	
+	.table tr td:nth-child(3){
+		width: 50%;
+	}	
+
+	.table tr td:nth-child(6){
+		background: #EC450E;
+		color: #fff;
+		font-weight: bold;
+		width: 20%;
+	}	
+	
+
+	
+	.table tr td:nth-child(7){
+		width: 20%;
+	}	
+	
+	
+
+	
+	ul {
+  list-style: none;
+  padding-left: 0;
+}
+li {
+  position: relative;
+  padding-left: 1.5em;  /* space to preserve indentation on wrap */
+}
+li:before {
+  position: absolute;
+  left: 0;  /* place the SVG at the start of the padding */
+  width: 1em;
+  height: 1em;
+  content: '✓';
+color: green;
+	font-weight: bold;
+}
+
+
+/* accordion_section CSS End  */
+</style>
+</head>
+	<!--Customer feedback section-->
+	<!--<section class="oe_container oe_dark rounded border border-success " style="padding-bottom:20px; border-radius:45px">
+  <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb32" style="border-radius:25px">
+     <h1 class="pt-4"> <strong>Our Customer Reviews</strong></h1>
+		</div> 
+	<div class="container">	
+	     <div class="row">
+        <div class="col-md-8 col-sm-8 col-xs-12 pl-5 pr-5 mt-3 mb-3">
+           <h4 class="text-left pt-4" style="font-family:font-family: 'Lato', sans-serif"><br>"Experience is  good using Saas Kit Rocket All in One
+      module with Pragmatic, no problem overall."</h4>
+				<p class="text-right mt30">- <strong>Mohammed Alreshi</strong> <br>Takamol Tec</p>
+          </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 pl-5 pr-5 mt-3 mb-3 ml-auto">
+			<img class="" src="img/mohammed_alreshi.png" alt="Mohammed Alreshi" width="90%;"> </div>
+      </div>
+    </div>	
+		<div class="container">	
+	     <div class="row">
+			  <div class="col-md-4 col-sm-4 col-xs-12 pl-5 pr-5 mt-3 mb-3 ml-auto">
+			<img class="" src="img/robbie_stevenson.png" alt="Noël Razafindrakoto" width="90%;"> </div>
+        <div class="col-md-8 col-sm-8 col-xs-12 pl-5 pr-5 mt-3 mb-3">
+          <h4 class="text-left pt-4" style="font-family:font-family: 'Lato', sans-serif"><br><b>"</b>Everything is fine services with Pragmatic are good<b>"</b></h4>
+			<p class="text-right mt30">- <strong> Robbie Stevenson </strong> <br>lucion</p>
+			 </div>
+      </div>
+    </div>
+		
+</section>-->
+    <!--Customer feedback section end-->
+	
+<!--Gif Section Start-->
+
+<section id="learn_more" class="oe_container oe_dark" style="padding-bottom:20px; ">
+  <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb32">
+    <div> <img class="img img-responsive" style="max-width:100%; width:100%" src="Design-gif-for-Appstore.gif"> </div>
+  </div>
+</section>
+<!--Gif Section End--> 
+
+<!--Banner Section Start-->
+<section class="oe_container oe_dark">
+  <div class="xero_bg pt80" style="background-color:rgb(34, 194, 115); background-size: cover; background-position: center center; height:auto; padding-top:60px;">
+    <div class="col-sm-8 col-md-8 col-xs-12 offset-md-2 offset-sm-2" style="background-color: rgba(0, 0, 0, 0.6);
+    padding: 21px;
+    text-align: center; border-radius:20px">
+      <h1 style="color:#fff; font-size: 35px;font-weight: 500;"><strong>Beauty Clinic Management</strong></h1>
+      
+      <!--<p>Business organizations uses different software specifically to different department activities eg : XERO Accounting system is used to keep online records of Invoices and its payment.</p>-->
+      
+      <p style="color: #fff; font-size: 25px;">One-Time Setup | Dedicated 90-Days Support <span style="color:#ff0"><b>(Monday-Friday 10am to 7pm IST)</b></span> | User Manual | Supports Multiple Languages </p>
+      
+		<div class="mt-4 rounded p-2" style="background-color:#002542">
+			  <div class="d-flex pt-2 pl-2 pr-2">
+    	<div class="p-2 flex-fill m-2 w-50" style="background-color:#EC450E">
+		<a class="mr-2" style="font-weight:600; color:#fff; font-size:18px" href="mailto:support@pragtech.co.in">
+		<i class="fa fa-envelope mr-3" style="font-size:30px; vertical-align:sub"></i>Free Demo</a>
+		</div>
+    	<div class="p-2 flex-fill m-2 w-50" style="background-color:#00AFF0">
+		<a class="mr-2" style="font-weight:600; color:#fff; font-size:18px" href="skype:pragtech?call">
+		<i class="fa fa-skype mr-3" style="font-size:30px; vertical-align:sub"></i>Skype Us</a>		  
+		</div>
+  </div>
+			<div class="d-flex pb-2 pl-2 pr-2">
+    		<div class="p-2 flex-fill m-2 w-50" style="background-color:#4dc247">
+			<span class="mr-2" style="font-weight:600; color:#fff; font-size:18px" href="https://wa.me/919765629686">
+		<i class="fa fa-whatsapp mr-3" style="font-size:30px; vertical-align:sub"></i>+91 97656 29686</span>
+			</div>
+			<div class="p-2 flex-fill m-2 w-50" style="background-color:#EC450E">
+			<a class="mr-2" style="font-weight:600; color:#fff; font-size:18px" href="#">
+		<i class="fa fa-phone-square mr-3" style="font-size:30px; vertical-align:sub"></i>+1 713 701 5957</a>
+			</div>
+  </div>
+			</div>
+		
+      <h3 class="mt-4" style="color: #fff; margin-top:5px;">We support for <b>English / French / Spanish at an additional cost</b></h3>
+      <div class="row"> 
+        
+        <!-- START For Desktop Purpose Only -->
+        <div class="col-md-12 mt-3 d-none d-sm-block" style="margin:auto; padding-left: 5px; padding-right: 5px;">
+          <table class="table-sm" width="100%" border="1" background="#fff" style="background-color:#fff;">
+            <thead style="background-color: #22c273; color: #000;">
+              <tr>
+                <td colspan="10" style="padding: 15px; font-size: 23px;"><b>Supported Odoo versions &amp; platforms</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #f8f8f8; font-size: 14px;">
+                <td style="padding:10px;"><b>Odoo.sh</b></td>
+                <td style="padding: 10px;"><b>Self Hosted</b></td>
+                <td style="padding: 10px;"><b>Enterprise</b></td>
+                <td style="padding: 10px;"><b>Community</b></td>
+                <td style="padding: 10px;"><b>Odoo Online</b></td>
+              </tr>
+              <tr> 
+                <!--<td style="text-align:center; padding:10px;"><img src="img/yes_icon.svg" width="28"></td>
+                    <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                    <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                   <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                   <td style="text-align:center"><img src="img/no_icon.svg" width="28"></td>-->
+                
+                <td style="text-align:center; padding:10px;"><img src="img/yes_icon.svg" width="28"></td>
+                <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                <td style="text-align:center"><img src="img/no_icon.svg" width="28"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- END For Desktop Purpose Only --> 
+        
+        <!-- START For Mobile Purpose Only -->
+        
+        <div class="col-md-8 mt-3 d-block d-sm-none" style="margin:auto; padding-left: 5px; padding-right: 5px;">
+          <table class="table-sm" width="100%" border="1" background="#fff" style="background-color:#fff;">
+            <thead style="background-color: #22c273; color: #FFF;">
+              <tr>
+                <td colspan="2" style="padding: 15px; font-size: 23px;"><b>Supported Odoo versions & platforms</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px;"><b>Odoo.sh</b></td>
+                <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px;"><b>Self Hosted</b></td>
+                <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+              </tr>
+              <tr style="background-color: #f8f8f8;">
+                <td style="padding: 10px;"><b>Enterprise</b></td>
+                <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px;"><b>Community</b></td>
+                <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+              </tr>
+              <tr style="background-color: #f8f8f8;">
+                <td style="padding: 10px;"><b>Odoo Online</b></td>
+                <td style="text-align:center"><img src="img/no_icon.svg" width="28"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- END For Mobile Purpose Only -->
+        
+        <div style="text-align: left; color:#fff; margin-top:20px; list-style: none!important; line-height: 37px; padding-left: 14px; font-weight: 600; font-size:14px; ">
+          <p style=" margin-bottom: 15px; line-height: 21px;"><i class="fa fa-check-circle" style="margin-right: 10px; color: #fff; font-size: 22px; line-height: 15px;"></i>Works & tested on standard installations of Odoo with no third party apps</p>
+          <p style=" margin-bottom: 15px; line-height: 21px;"><i class="fa fa-check-circle" style="margin-right: 10px; color: #fff; font-size: 22px; line-height: 15px;"></i>Free support only for odoo installations with no third party apps</p>
+          <p style=" margin-bottom: 15px; line-height: 21px;"><i class="fa fa-check-circle" style="margin-right: 10px; color: #fff; font-size: 22px; line-height: 15px;"></i>Paid support availaible for Odoo installations with third party apps.</p>
+        </div>
+      </div>
+ 
+      <div class="row mt-3 mb-3">
+        <div class="col-12">
+          <h3 class="text-center text-white">Our Service Offerings</h3>
+        </div>
+        <div class="col-md-4 mt-4"> <img class="img-fluid" src="img/resources.png" style="margin: auto; width: 60%;">
+          <h5 class="text-center text-white mt-2">Odoo Dedicated Resources</h5>
+        </div>
+        <div class="col-md-4 mt-4"> <img class="img-fluid" src="img/succes-pack.png" style="margin: auto; width: 60%;">
+          <h5 class="text-center text-white mt-2">Odoo Success Packs</h5>
+        </div>
+        <div class="col-md-4 mt-4"> <img class="img-fluid" src="img/project.png" style="margin: auto; width: 60%;">
+          <h5 class="text-center text-white mt-2">Odoo Turnkey Projects</h5>
+        </div>
+        <div class="col-12 mt-4">
+          <h5 class="text-center text-white">To connect with us: <a href="mailto:support@pragtech.co.in" style="color: #ff0">support@pragtech.co.in</a></h5>
+        </div>
+      </div>
+		
+		
+		
+		
+    </div>
+	  <div> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave4.png"> </div>
+  </div>
+</section>
+<!--Banner Section End--> 
+
+<!--Sale Section Start-->
+<section class="oe_container" style=" padding-bottom:20px;"> </section>
+<!--Sale Section End-->
+
+	<!--Blog and user manual link section Start-->
+	<!--<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #9FDAC4">
+    <div class="row mt-3">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#00CAAB; padding:15px; border-radius:8px"><b>For more information on ODOO SAAS Rocket Kit All in One,<br> visit the blog and the user manual links below.</b></h2>
+        <div class="dropdown-divider mt-3 mb-3" style="border-color:#f6a38b; width:75%; margin:0 auto"></div>
+      </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 border-right">
+			<h4 class="text-center"><strong>Saaskit User manual :</strong></h4>
+       <p class="text-center">https://www.pragtech.co.in/pdf/saaskit_user_manual.pdf </p>
+      </div>
+
+      <div class="col-md-6">
+		  <h4 class="text-center"><strong>Saaskit blog :</strong> </h4>
+       <p class="text-center text-dark">https://blog.pragtech.co.in/odoo-saas-rocket-kit-all-in-one/</p>
+      </div>
+    </div>
+  </div>
+</section>-->
+<!--Blog and user manual link section End-->
+	
+	
+<section>
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #E1E5F2">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb8">
+        <div class="mt-0 mb-3"> <img class="img-fluid" src="https://www.pragtech.co.in/appstore-img/sale.jpg" style="margin:auto"> </div>
+		  
+		  <h1 class=" text-center mb-3" style="background-color:#E1E5F2; padding:15px; border-radius:8px "><strong>Beauty Clinic Management</strong></h1>
+        
+        <p>The Beauty clinic module is very useful for admin and doctors to manage the patient details, appointments, face marks, body marks, treatment notes, utilized materials, generate prescriptions, invoicing and insurance management.
+        </p>
+	
+        <div class="mt-1 mb-1"> <img class="img-fluid" src="img/beauty-clinic-img-min.jpg" style="margin:auto"> </div>
+		  
+		  
+        <div class="col-md-6 col-sm-6 col-xs-12 offset-md-3 offset-sm-3 mt32 mb32 padding-none text-center pt-4 pb-4">
+      <a href="https://www.youtube.com/watch?v=FtwRJKAQqdQ" target="_blank"><img class="oe_screenshot" src="img/beauty_clinic_management_thumbnail.jpg" style="margin:auto; width:100%"> </a>   
+     </div>
+		  
+		  
+       <div class="d-flex justify-content-center mt-4"> <a class="mr-2" style="padding:12px 32px; display:inline-block; background-color:#EC450E; color:#fff; border-radius:3px; margin:14px 0px; font-weight:400" href="mailto:support@pragtech.co.in"><i class="fa fa-envelope mr-1"></i>Request a Free Demo Video </a> <a style="padding:12px 32px; display:inline-block; background-color:#00AFF0; color:#fff; border-radius:3px; margin:14px 0px; font-weight:400" href="skype:pragtech?call"> <i class="fa fa-skype mr-1"></i> Skype Us</a>  </div>
+		  
+      </div>
+    </div>
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>	
+	<!--Odoo Beauty Clinic Management Key Features-->
+	<section class="mt-2 mb-3">
+  <div class="container shadow-lg p-3 mt-2" style="background-color:white; border-radius:20px; border:1px solid #1F98D4">
+    <div class="row mt-3">
+		<div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Odoo Beauty Clinic Management Key Features</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/FeqJNNouD_g" target="_blank"><img class="img-fluid" src="img/configuration_setup.jpg"></a> </div>
+      </div>
+      <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/jBUh9VUXUWs" target="_blank"><img class="img-fluid" src="img/appointment_view_and_validations.jpg"></a> </div>
+      </div>
+    </div>
+	  <div class="row mt-3">
+        <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/P1MaIYinX8w" target="_blank"><img class="img-fluid" src="img/patient_creation_and_validations.jpg"></a> </div>
+      </div>
+       <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/yK2PfsjZrlw" target="_blank"><img class="img-fluid" src="img/appointment_creation.jpg"></a> </div>
+      </div>
+    </div>
+	  <div class="row mt-3">
+        <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/9hd51ab4rT4" target="_blank"><img class="img-fluid" src="img/creation_of_medical_notes.jpg"></a> </div>
+      </div>
+       <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/jErcTmRqK2o" target="_blank"><img class="img-fluid" src="img/face_chart_functionality.jpg"></a> </div>
+      </div>
+    </div>
+	   <div class="row mt-3">
+        <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/QXP0PY6R5vo" target="_blank"><img class="img-fluid" src="img/body_chart_functionality.jpg"></a> </div>
+      </div>
+       <div class="col-md-6">
+			<div class="mt-3"> <a href="https://youtu.be/mqkBvKWg8Kc" target="_blank"><img class="img-fluid" src="img/create_invoices_from_appointment.jpg"></a> </div>
+      </div>
+    </div>
+	   <div class="row mt-3">
+        <div class="col-md-8 mx-auto">
+			<div class="mt-3"> <a href="https://youtu.be/0i11CowHAsg" target="_blank"><img class="img-fluid" src="img/create_payments_from_appointment.jpg"></a> </div>
+      </div>
+    </div>
+	  <div class="d-flex justify-content-center mt-4">  
+		  <a target="_blank" href="https://www.youtube.com/playlist?list=PL2EzssQ9RhdFat6o3U76U2w85ZFTTpJde" style="padding:10px 16px; display:inline-flex; background-color:#d7c0d0; color:#000; border-radius:25px; margin:14px 0px; font-weight:400" class="font-weight-normal s_figure_link deep-2 deep_hover ml-2 align-items-center"><i class="fa fa-fw fa-play o-icon border-0 mr-2" style="background-color:rgba(255, 255, 255, 0.36); width:25px; height:25px; line-height:26px; color:#fff; font-size:11px"></i> Odoo Beauty Clinic Management video playlist </a> </div>
+  </div>
+</section>
+	<!--Odoo Beauty Clinic Management Key Features-->
+	
+<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #d7c0d0">
+	  
+	<div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Features in Appointment Calendar</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/calender_view.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>The most simplified way to create appointments from a calendar view.<br>&nbsp;</h4>
+			 
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/timeslots.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Manage all the doctors, timeslots and specialities.&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/all_doctors.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Showcased all the doctors listed in the calendar based on the timeslot configuration.&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/create_and_edit.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+			  		 <p>&nbsp;<br></p> 
+             <h4>Create and Edit appointments.<br>&nbsp;</h4>
+	          <p></p> 
+           </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/restrict_to_create_appointments.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Restrict to create appointments other than timeslots.</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-center" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/treatment_notes.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Create and Edit Treatment notes.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/invoice_appointment_calender.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Create an invoice from the appointment calendar.&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/register_payment.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Register the payments from the appointment calendar.&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	   <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/manage_invoice_status.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Manage the invoice status.&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container  row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/face_and_body_marks.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Open Face and Body marks.&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	  
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+	
+	<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #d7c0d0">
+	  
+	<div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Features in Patients form</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/paitent_info.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Manage the patients information<br>&nbsp;</h4>
+			 
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/block_paitents.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Able to block the patients with reasons. If the patient is blocked then the name is not listed in the appointments.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/unblock_paitents.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Able to unblock the patients.</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/phone_numbers.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>System not allowed to enter same phone numbers for multiple patients.</h4>
+			  
+          </div>
+        </div>
+      </div>
+    </div> 
+
+	  
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+	
+	
+	<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #d7c0d0">
+	  
+	<div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Facial marking Functionality</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/bright_face.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Display the bright face image.<br>&nbsp;</h4>
+			 
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/mark_cursor.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Mark the affected areas using mouse cursors.<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/marking_record.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Save the marking record.<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/edit_marking.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+             <h4>Edit and change the marking areas.<br>&nbsp;</h4>
+	          <p></p> 
+           </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/edit_marking_undo.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Undo the latest marked areas.</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-center" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/edit_marking_delete.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Delete complete markings.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/material_list.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Add the list of utilized materials for the treatments.<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; ">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> </div>
+          <div class="col-md-9 text-center text-md-left">
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	  
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+
+	
+<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #d7c0d0">
+	  
+	<div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Body marking Functionality</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/bright_body_images.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Display the body images.<br>&nbsp;</h4>
+			 
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/mark_cursor.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Mark the affected areas using mouse cursors.<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/marking_record.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Save the marking record.<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/edit_marking.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+             <h4>Edit and change the marking areas.<br>&nbsp;</h4>
+	          <p></p> 
+           </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/edit_marking_undo.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Undo the latest marked areas.</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-center" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/edit_marking_delete.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Delete complete markings.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/material_list.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Add the list of utilized materials for the treatments.<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; ">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> </div>
+          <div class="col-md-9 text-center text-md-left">
+          </div>
+        </div>
+      </div>
+    </div>
+	   
+
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+	
+
+	<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #d7c0d0">
+	  
+	<div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Manage the Materials and Treatment Notes</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/bright_body_images.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Display the bright body images.<br>&nbsp;</h4>
+			 
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-top" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/cursor.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Mark the affected areas using mouse cursors.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+	
+	
+<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #9FDAC4">
+	  
+	<div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Prescription Management
+</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-center" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/appointment_prescription_connect.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Able to connect prescriptions with appointments.<br>&nbsp;</h4>
+			 
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-center" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/printer.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Add medicines and print the prescription.
+&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <div class="row pl-2 pr-2">
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff2f1;">
+        <div class="container row align-items-center" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:60px;" src="img/invoice_prescription.png"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4>Create invoice from prescription.
+&nbsp;<br>&nbsp;</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; 
+    background-color: #fff;">
+        <div class="" style="border-radius: 12px;">
+          <div class="col-md-3 text-center mb-3"> </div>
+          <div class="col-md-9 text-center text-md-left">
+            <h4></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+    <!--<div class="row mb-4 mt-5">
+      <div class="col-12 text-center">
+        <h2><b>Odoo SAAS Rocket Kit Features</b></h2>
+        <div class="dropdown-divider mt-3"></div>
+      </div>
+    </div>-->
+   
+	
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #9FDAC4">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb8">
+        <h2 class="text-center mb-3" style="background-color:#d7c0d0; padding:15px; border-radius:8px"><b>Application Designs</b></h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Calendar View</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_1.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+      <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Appointment Creation screen</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_2.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+	    <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Appointment Detailed Screen</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_3.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+	    <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Edit Appointments</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_4.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+	    <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Create invoice Form in Appointment Screen</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_5.jpg" style="margin:auto" > </div>
+      </div>
+    </div>
+	    <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Admin/Doctor Notes Form</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_6.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+	    <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Face Chart Designs</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_7.jpg" style="margin:auto"> </div>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_8.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+	    <div class="row mt-5">
+      <div class="col-12">
+          <h2 class="text-center"><strong>Body chart Designs</strong></h2>
+        <div class="mt-3"> <img class="img-fluid" src="img/beauty_clinic_9.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+	  
+	   <div class="d-flex justify-content-center mt-4"> <a class="mr-2" style="padding:12px 32px; display:inline-block; background-color:#EC450E; color:#fff; border-radius:3px; margin:14px 0px; font-weight:400" href="mailto:support@pragtech.co.in"><i class="fa fa-envelope mr-1"></i>Request a Free Demo Video </a> <a style="padding:12px 32px; display:inline-block; background-color:#00AFF0; color:#fff; border-radius:3px; margin:14px 0px; font-weight:400" href="skype:pragtech?call"> <i class="fa fa-skype mr-1"></i> Skype Us</a>  </div>
+    
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+
+	
+<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #9FDAC4">
+    <div class="row">
+      <div class="col-12 text-center mb-3">
+        <h2 class="text-center mb-3" style="background-color:#00CAAB; padding:15px; border-radius:8px"><b>Related Products</b></h2>
+        <div class="dropdown-divider mt-3 mb-3"></div>
+      </div>
+      <div id="slide-bottom1" class="row carousel slide mt64 mb32" data-ride="carousel"> 
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="col-xs-12 col-sm-4 col-md-4 mb16 mt16" style="float: left;"> <a href="https://apps.odoo.com/apps/modules/16.0/pragtech_dental_management/" target="_blank">
+              <div style="border-radius: 10px; border:1px solid #ccc"> <img class="img img-fluid center-block" style="border-top-left-radius: 10px;border-top-right-radius: 10px;" src="img/Dental_Clinic_Management.png">
+                <h4 class="mt0" style="padding:6% 4%;text-align: center;white-space: normal;width: 100%;overflow: hidden;text-overflow: ellipsis;font-family: Roboto-medium;">Odoo Dental Clinic Management</h4>
+              </div>
+              </a> </div>
+			   <div class="col-xs-12 col-sm-4 col-md-4 mb16 mt16" style="float: left;"> <a href="https://apps.odoo.com/apps/modules/16.0/pragtech_clinic/" target="_blank">
+              <div style="border-radius: 10px; border:1px solid #ccc"> <img class="img img-fluid center-block" style="border-top-left-radius: 10px;border-top-right-radius: 10px;" src="img/odoo-clinic-management-gif.gif">
+                <h4 class="mt0" style="padding:6% 4%;text-align: center;white-space: normal;width: 100%;overflow: hidden;text-overflow: ellipsis;font-family: Roboto-medium;">Odoo Clinic Management</h4>
+              </div>
+              </a> </div>
+			   <div class="col-xs-12 col-sm-4 col-md-4 mb16 mt16" style="float: left;"> <a href="https://apps.odoo.com/apps/modules/16.0/pragtech_medical/" target="_blank">
+              <div style="border-radius: 10px; border:1px solid #ccc"> <img class="img img-fluid center-block" style="border-top-left-radius: 10px;border-top-right-radius: 10px;" src="img/odoo-healthcare-management-gif.gif">
+                <h4 class="mt0" style="padding:6% 4%;text-align: center;white-space: normal;width: 100%;overflow: hidden;text-overflow: ellipsis;font-family: Roboto-medium;">Odoo Healthcare Management</h4>
+              </div>
+              </a> </div>
+          </div>
+        </div>
+        
+        <!-- Left and right controls --> 
+        <a class="carousel-control-prev" href="#slide-bottom1" data-slide="prev" style="left:-25px;width: 35px;color: #000;"> <span class="carousel-control-prev-icon"><i class="fa fa-chevron-left" style="font-size:24px"></i></span> </a> <a class="carousel-control-next" href="#slide-bottom1" data-slide="next" style="right:-25px;width: 35px;color: #000;"> <span class="carousel-control-next-icon"><i class="fa fa-chevron-right" style="font-size:24px"></i></span> </a> </div>
+    </div>
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+	
+<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #9FDAC4">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#00CAAB; padding:15px; border-radius:8px"><strong>Help Support Covid Relief</strong></h2>
+        <div class="dropdown-divider mt-3 mb-3"></div>
+        <p><strong>Pragmatic</strong> has always been contributing itswarsa social causes by exercising its Corporate Social Responsibility. We are pledged to COVID relief and have been donating a major share of our profits to COVID Pandemic Relief. By purchasing our apps and services you are becoming a part of helping the needy in these critical times. If you want to help further please connect with us and we will help you find NGOs whom you can donate directly. </p>
+        <div class="d-flex justify-content-center mt-4"> <a class="mr-2" style="padding:12px 32px; display:inline-block; background-color:#EC450E; color:#fff; border-radius:3px; margin:14px 0px; font-weight:400" href="mailto:support@pragtech.co.in"><i class="fa fa-envelope mr-1"></i>support@pragtech.co.in</a> </div>
+        <div class="mt-3"> <img class="img-fluid" src="img/Help_support.jpg" style="margin:auto"> </div>
+      </div>
+    </div>
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+	
+<section class="mt-5">
+  <div class="container shadow-lg p-4 mt-5" style="border-radius:20px; border:1px solid #9FDAC4">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-center mb-3" style="background-color:#00CAAB; padding:15px; border-radius:8px"><strong>Contact / Support</strong></h2>
+        <p><strong>(Monday-Friday 10am to 7pm IST)</strong></p>
+        <h3 style="color: #0aab77"><strong>Pragmatic Techsoft Pvt. Ltd.</strong></h3>
+        <div class="d-flex justify-content-center"> <a class="mr-2" style="padding:12px 32px; display:inline-block; background-color:#EC450E; color:#fff; border-radius:3px; margin:14px 0px; font-weight:400" href="mailto:support@pragtech.co.in"><i class="fa fa-envelope mr-1"></i>support@pragtech.co.in</a> </div>
+        <div class="dropdown-divider mt-3 mb-3"></div>
+      </div>
+    </div>
+    <div class="row mt-3 p-3">
+      <div class="col-md-7">
+        <p class="text-justify" style="font-size:16px;"><b>Pragmatic</b> is a global open source enterprise software development,
+          consulting and products company. Our philosophy is to use Open Source
+          tools and technologies to provide cost effective and green solutions for our customers.</p>
+        <p class="text-justify" style="font-size:16px;">We are a dynamic and fast growing company committed towards creating
+          value for our customers. Located in Pune, India the educational and IT
+          hub of western India, we take pride in delivering rapid, customized open
+          source enterprise applications following agile and lean software methods.
+          Whether you are developing an application from scratch, working on an existing
+          application or porting your application to a new platform or framework, we can meet your business needs.</p>
+        <p class="oe_mt32 text-justify" style="font-size:16px;">If you need any help or want more additional features, you may contact us through:</p>
+        <div style="text-align: center;"><a href="http://www.pragtech.co.in"><img src="logo.png"></a></div>
+        <div class="dropdown-divider mt-3 mb-3"></div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;"> <a style="color:#EC450E; font-size: 17px; font-weight: bold" href="mailto:sales@pragtech.co.in"> <i class="fa fa-envelope" style="font-size:19px;" aria-hidden="true"></i> sales@pragtech.co.in</a><br/>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;"> <a style="color:#EC450E; font-size: 17px; font-weight: bold" href="https://www.pragtech.co.in" rel="nofollow"><i class="fa fa-globe" style="font-size:19px;" aria-hidden="true"></i> www.pragtech.co.in</a><br/>
+          </div>
+        </div>
+        <div class="dropdown-divider mt-3 mb-3"></div>
+      </div>
+      <div class="col-md-5" style="display:table-cell; background-color:#00CAAB; padding:20px">
+        <h3 style="text-align:center"><b>Our solutions focus on your problems</b></h3>
+        <div class="dropdown-divider mt-3 mb-3" style="border-color: #000"></div>
+        <ul style="line-height:30px; font-size:15px; padding-left:20px; text-decoration:none; color:#000; text-transform:uppercase">
+          <li list-style-type:=""> <span style="color:#000" target="_blank" href="http://www.pragtech.co.in/services/customization-implementation-service/odoo-openerp/odoo-openerp-implementation-methodology.html">Odoo Implementation</span></li>
+          <!--<li list-style-type:> <a style="color:#000;" href="http://www.pragtech.co.in/contact.html" target="_blank">Odoo Support</a></li>-->
+          <li list-style-type:=""> <span style="color:#000" target="_blank" href="http://www.pragtech.co.in/services/customization-implementation-service/odoo-openerp.html">Odoo Customization</span></li>
+          <li> <span style="color:#000" href="http://www.pragtech.co.in/technologies/odoo-openerp/odoo-11-features.html">ERP Development and Implementation</span></li>
+          <li> <span style="color:#000" href="https://ipaas.pragtech.co.in/">Odoo Ipass Cloud</span></li>
+          <li> <span style="color:#000" href="http://www.pragtech.co.in/products/other-products/odoo-voice-bring-artificial-intelligence-ai-to-odoo-platform.html">AI for Odoo</span></li>
+          <li> <span style="color:#000" href="https://store.pragtech.co.in/shop">Odoo Apps</span></li>
+          <li> <span style="color:#000" href="https://aws.amazon.com/marketplace/seller-profile?id=6559afc1-9219-494e-b8d0-831be5da3b1e">Aws Marketplace Products</span></li>
+          <li> <span style="color:#000" href="https://businessengines.co.in/">Business Engines</span></li>
+        </ul>
+        <h3 style="text-align:center; margin-bottom:25px"><b>Get In Touch</b></h3>
+        <h2 style="text-align:center; margin-top:12px"> <span style="color:#000; margin-right:10px" href="https://www.facebook.com/pragmatic.co.in" target="new"> <i class="fa fa-facebook-square" style="font-size:28px"></i> </span> <span style="color:#000; margin-right:10px" href="https://twitter.com/Pragmatic_Tech" target="new"> <i class="fa fa-twitter" style="font-size:28px"></i> </span> <span style="color:#000; margin-right:10px" href="https://www.linkedin.com/company/228353" target="new"> <i class="fa fa-linkedin" style="font-size:28px"></i> </span> <a style="color:#000; margin-right:10px" href="https://www.youtube.com/user/PragmaticVideos" target="new"> <i class="fa fa-youtube-play" style="font-size:28px"></i> </a> <span style="color:#000; margin-right:10px" href="https://plus.google.com/u/0/104748260070453259356" target="new" rel="publisher"> <i class="fa fa-google-plus-square" style="font-size:28px"></i> </span> <span style="color:#000; margin-right:10px" href="http://blog.pragtech.co.in/" target="new" rel="publisher"> <i class="fab fa-blogger" style="font-size:28px"></i> </span> </h2>
+      </div>
+    </div>
+	  <div style="margin:0px -25px -25px"> <img class="img-fluid w-100" src="https://www.pragtech.co.in/appstore-img/wave2.png" style="border-bottom-left-radius:20px; border-bottom-right-radius:20px"> </div>
+  </div>
+</section>
+</html>
