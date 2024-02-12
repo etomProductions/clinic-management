@@ -105,7 +105,7 @@ class PurchaseReportScheduler(models.Model):
 
     def extract_products1(self):
         current_time = time.strftime('%Y-%m-%d')
-        production_ids = self.env['stock.production.lot'].search([])
+        production_ids = self.env['stock.lot'].search([])
         record = []
         for lot in production_ids:
             if lot.alert_date == current_time:

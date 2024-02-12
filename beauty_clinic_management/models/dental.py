@@ -46,7 +46,7 @@ class InsurancePlan(models.Model):
     company_id = fields.Many2one('res.partner', string='Insurance Company', required=True,
                                  domain="[('is_insurance_company', '=', '1')]")
     notes = fields.Text('Extra info')
-    code = fields.Char(size=64, required=True, index=True)
+    code = fields.Char(required=True, index=True)
 
 
 class MedicalInsurance(models.Model):
@@ -64,12 +64,12 @@ class MedicalInsurance(models.Model):
 
     name = fields.Char(related="res_partner_insurance_id.name")
     res_partner_insurance_id = fields.Many2one('res.partner', 'Owner')
-    number = fields.Char('Number', size=64, required=True)
+    number = fields.Char('Number', required=True)
     company_id = fields.Many2one('res.partner', 'Insurance Company', domain="[('is_insurance_company', '=', '1')]",
                                  required=True)
     member_since = fields.Date('Member since')
     member_exp = fields.Date('Expiration date')
-    category = fields.Char('Category', size=64, help="Insurance company plan / category")
+    category = fields.Char('Category', help="Insurance company plan / category")
     type = fields.Selection([('state', 'State'), ('labour_union', 'Labour Union / Syndical'), ('private', 'Private'), ],
                             'Insurance Type')
     notes = fields.Text('Extra Info')
@@ -81,7 +81,7 @@ class Partner(models.Model):
     _description = "Res Partner"
 
     date = fields.Date('Partner since', help="Date of activation of the partner or patient")
-    alias = fields.Char('alias', size=64)
+    alias = fields.Char('alias')
     ref = fields.Char('ID Number')
     is_person = fields.Boolean('Person', help="Check if the partner is a person.")
     is_patient = fields.Boolean('Patient', help="Check if the partner is a patient")
@@ -89,8 +89,8 @@ class Partner(models.Model):
     is_institution = fields.Boolean('Institution', help="Check if the partner is a Medical Center")
     is_insurance_company = fields.Boolean('Insurance Company', help="Check if the partner is a Insurance Company")
     is_pharmacy = fields.Boolean('Pharmacy', help="Check if the partner is a Pharmacy")
-    middle_name = fields.Char('Middle Name', size=128, help="Middle Name")
-    lastname = fields.Char('Last Name', size=128, help="Last Name")
+    middle_name = fields.Char('Middle Name', help="Middle Name")
+    lastname = fields.Char('Last Name', help="Last Name")
     insurance_ids = fields.One2many('medical.insurance', 'name', "Insurance")
     treatment_id = fields.Many2many('product.product', 'treatment_insurance_company_relation', 'treatment_id',
                                     'insurance_company_id', 'Treatment')
@@ -170,7 +170,7 @@ class PathologyCategory(models.Model):
         if not self._check_recursion():
             raise ValidationError(_('Error ! You cannot create a recursive category.'))
 
-    name = fields.Char('Category Name', required=True, size=128)
+    name = fields.Char('Category Name', required=True)
     parent_id = fields.Many2one('medical.pathology.category', 'Parent Category', index=True)
     complete_name = fields.Char(compute='_name_get_fnc', string="Name")
     child_ids = fields.One2many('medical.pathology.category', 'parent_id', 'Children Category')
@@ -181,12 +181,12 @@ class MedicalPathology(models.Model):
     _name = "medical.pathology"
     _description = "Diseases"
 
-    name = fields.Char('Name', required=True, size=128, help="Disease name")
-    code = fields.Char('Code', size=32, required=True, help="Specific Code for the Disease (eg, ICD-10, SNOMED...)")
+    name = fields.Char('Name', required=True, help="Disease name")
+    code = fields.Char('Code', required=True, help="Specific Code for the Disease (eg, ICD-10, SNOMED...)")
     category = fields.Many2one('medical.pathology.category', 'Disease Category')
-    chromosome = fields.Char('Affected Chromosome', size=128, help="chromosome number")
-    protein = fields.Char('Protein involved', size=128, help="Name of the protein(s) affected")
-    gene = fields.Char('Gene', size=128, help="Name of the gene(s) affected")
+    chromosome = fields.Char('Affected Chromosome', help="chromosome number")
+    protein = fields.Char('Protein involved', help="Name of the protein(s) affected")
+    gene = fields.Char('Gene', help="Name of the gene(s) affected")
     info = fields.Text('Extra Info')
     line_ids = fields.One2many('medical.pathology.group.member', 'name',
                                'Groups', help='Specify the groups this pathology belongs. Some'
@@ -211,10 +211,10 @@ class MedicalPathologyGroup(models.Model):
     _name = 'medical.pathology.group'
 
     name = fields.Char('Name', required=True, translate=True, help='Group name')
-    code = fields.Char('Code', size=128, required=True,
+    code = fields.Char('Code', required=True,
                        help='for example MDG6 code will contain the Millennium Development'
                             ' Goals # 6 diseases : Tuberculosis, Malaria and HIV/AIDS')
-    desc = fields.Char('Short Description', size=128, required=True)
+    desc = fields.Char('Short Description', required=True)
     info = fields.Text('Detailed information')
 
 
@@ -253,7 +253,7 @@ class MedicalMedicationTemplate(models.Model):
         ('weeks', 'weeks'),
         ('wr', 'when required'),
     ], 'unit', index=True, default='hours')
-    admin_times = fields.Char('Admin hours', size=128,
+    admin_times = fields.Char('Admin hours',
                               help='Suggested administration hours. For example, at 08:00, 13:00 and 18:00 can be encoded like 08 13 18')
     duration = fields.Integer('Treatment duration',
                               help="Period that the patient must take the medication. in minutes, hours, days, months, years or indefinately")
@@ -295,7 +295,7 @@ class MedicamentCategory(models.Model):
         if not self._check_recursion():
             raise ValidationError(_('Error ! You cannot create a recursive category.'))
 
-    name = fields.Char('Category Name', required=True, size=128)
+    name = fields.Char('Category Name', required=True)
     parent_id = fields.Many2one('medicament.category', 'Parent Category', index=True)
     complete_name = fields.Char(compute='_name_get_fnc', string="Name")
     child_ids = fields.One2many('medicament.category', 'parent_id', 'Children Category')
@@ -318,8 +318,8 @@ class MedicalMedicament(models.Model):
                                             domain=[('is_medicament', '=', "1")], help="Commercial Name")
 
     category = fields.Many2one('medicament.category', 'Category')
-    active_component = fields.Char('Active component', size=128, help="Active Component")
-    therapeutic_action = fields.Char('Therapeutic effect', size=128, help="Therapeutic action")
+    active_component = fields.Char('Active component', help="Active Component")
+    therapeutic_action = fields.Char('Therapeutic effect', help="Therapeutic action")
     composition = fields.Text('Composition', help="Components")
     indications = fields.Text('Indication', help="Indications")
     dosage = fields.Text('Dosage Instructions', help="Dosage / Indications")
@@ -372,8 +372,8 @@ class MedicalSpeciality(models.Model):
     _name = "medical.speciality"
     _description = "Medical Speciality"
 
-    name = fields.Char('Description', size=128, required=True, help="ie, Addiction Psychiatry")
-    code = fields.Char('Code', size=128, help="ie, ADP")
+    name = fields.Char('Description', required=True, help="ie, Addiction Psychiatry")
+    code = fields.Char('Code', help="ie, ADP")
 
     _sql_constraints = [
         ('code_uniq', 'unique (name)', 'The Medical Specialty code must be unique')]
@@ -396,7 +396,7 @@ class MedicalPhysician(models.Model):
                                                        help="Physician's Name, from the partner list")
     institution = fields.Many2one('res.partner', 'Institution', domain=[('is_institution', '=', "1")],
                                   help="Institution where she/he works")
-    code = fields.Char('ID', size=128, help="MD License ID")
+    code = fields.Char('ID', help="MD License ID")
     speciality = fields.Many2one('medical.speciality', 'Specialty', required=True, help="Specialty Code")
     info = fields.Text('Extra info')
     user_id = fields.Many2one('res.users', related='res_partner_medical_physician_id.user_id', string='Physician User',
@@ -440,8 +440,8 @@ class MedicalOccupation(models.Model):
     _name = "medical.occupation"
     _description = "Occupation / Job"
 
-    name = fields.Char('Occupation', size=128, required=True)
-    code = fields.Char('Code', size=64)
+    name = fields.Char('Occupation', required=True)
+    code = fields.Char('Code')
 
     _sql_constraints = [
         ('occupation_name_uniq', 'unique(name)', 'The Name must be unique !'),
@@ -630,10 +630,10 @@ class MedicalPatient(models.Model):
 
     partner_id = fields.Many2one('res.partner', 'Patient', required="1",
                                  domain=[('is_patient', '=', True), ('is_person', '=', True)], help="Patient Name")
-    patient_id = fields.Char('Patient ID', size=64,
+    patient_id = fields.Char('Patient ID',
                              help="Patient Identifier provided by the Health Center. Is not the patient id from the partner form",
                              default=lambda self: _('New'))
-    ssn = fields.Char('SSN', size=128, help="Patient Unique Identification Number")
+    ssn = fields.Char('SSN', help="Patient Unique Identification Number")
     lastname = fields.Char(related='partner_id.lastname', string='Lastname')
     middle_name = fields.Char(related='partner_id.middle_name', string='Middle Name')
     family_code = fields.Many2one('medical.family_code', 'Family', help="Family Code")
@@ -1254,7 +1254,7 @@ class MedicalPatientDisease(models.Model):
     is_on_treatment = fields.Boolean('Currently on Treatment')
     is_infectious = fields.Boolean('Infectious Disease',
                                    help="Check if the patient has an infectious / transmissible disease")
-    short_comment = fields.Char('Remarks', size=128,
+    short_comment = fields.Char('Remarks',
                                 help="Brief, one-line remark of the disease. Longer description will go on the Extra info field")
     doctor = fields.Many2one('medical.physician', 'Physician', help="Physician who treated or diagnosed the patient")
     diagnosed_date = fields.Date('Date of Diagnosis')
@@ -1269,7 +1269,7 @@ class MedicalPatientDisease(models.Model):
         'Allergy type', index=True)
     pcs_code = fields.Many2one('medical.procedure', 'Code',
                                help="Procedure code, for example, ICD-10-PCS Code 7-character string")
-    treatment_description = fields.Char('Treatment Description', size=128)
+    treatment_description = fields.Char('Treatment Description')
     date_start_treatment = fields.Date('Start of treatment')
     date_stop_treatment = fields.Date('End of treatment')
     status = fields.Selection(
@@ -1289,8 +1289,8 @@ class MedicalDoseUnit(models.Model):
     _name = "medical.dose.unit"
     _description = " Medical Dose Unit"
 
-    name = fields.Char('Unit', size=32, required=True, )
-    desc = fields.Char('Description', size=64)
+    name = fields.Char('Unit', required=True, )
+    desc = fields.Char('Description')
 
     _sql_constraints = [
         ('dose_name_uniq', 'unique(name)', 'The Unit must be unique !'),
@@ -1301,8 +1301,8 @@ class MedicalDrugRoute(models.Model):
     _name = "medical.drug.route"
     _description = "Medical Drug Route"
 
-    name = fields.Char('Route', size=64, required=True)
-    code = fields.Char('Code', size=32)
+    name = fields.Char('Route', required=True)
+    code = fields.Char('Code')
 
     _sql_constraints = [
         ('route_name_uniq', 'unique(name)', 'The Name must be unique !'),
@@ -1313,8 +1313,8 @@ class MedicalDrugForm(models.Model):
     _name = "medical.drug.form"
     _description = "Medical Drug Form"
 
-    name = fields.Char('Form', size=64, required=True, )
-    code = fields.Char('Code', size=32)
+    name = fields.Char('Form', required=True, )
+    code = fields.Char('Code')
 
     _sql_constraints = [
         ('drug_name_uniq', 'unique(name)', 'The Name must be unique !'),
@@ -1325,8 +1325,8 @@ class MedicalMedicinePrag(models.Model):
     _name = "medical.medicine.prag"
     _description = "Medical Medicine Prag"
 
-    name = fields.Many2one('product.product', size=64, required=True, )
-    code = fields.Char('Code', size=32)
+    name = fields.Many2one('product.product', required=True, )
+    code = fields.Char('Code')
     price = fields.Float()
     qty_available = fields.Float(related="name.qty_available", string="Quantity Available")
 
@@ -1363,9 +1363,9 @@ class MedicalMedicationDosage(models.Model):
     _name = "medical.medication.dosage"
     _description = "Medicament Common Dosage combinations"
 
-    name = fields.Char('Frequency', size=256, help='Common frequency name', required=True, )
-    code = fields.Char('Code', size=64, help='Dosage Code, such as SNOMED, 229798009 = 3 times per day')
-    abbreviation = fields.Char('Abbreviation', size=64,
+    name = fields.Char('Frequency', help='Common frequency name', required=True, )
+    code = fields.Char('Code', help='Dosage Code, such as SNOMED, 229798009 = 3 times per day')
+    abbreviation = fields.Char('Abbreviation',
                                help='Dosage abbreviation, such as tid in the US or tds in the UK')
 
     _sql_constraints = [
@@ -1501,7 +1501,7 @@ class MedicalAppointment(models.Model):
     operations = fields.One2many('medical.teeth.treatment', 'appt_id', 'Operations')
     doctor = fields.Many2one('medical.physician', 'Doctor', help="Dentist's Name", required=True,
                              default=_get_default_doctor)
-    name = fields.Char('Appointment ID', size=64, readonly=True, default=lambda self: _('New'))
+    name = fields.Char('Appointment ID', readonly=True, default=lambda self: _('New'))
     patient = fields.Many2one('medical.patient', 'Patient', help="Patient Name", required=True, )
     appointment_sdate = fields.Datetime('Appointment Start', required=True, default=fields.Datetime.now)
     appointment_edate = fields.Datetime('Appointment End', required=True, )
@@ -1849,7 +1849,7 @@ class MedicalPatientMedication(models.Model):
                                help="Check this option if the patient is currently taking the medication")
     discontinued = fields.Boolean('Discontinued')
     course_completed = fields.Boolean('Course Completed')
-    discontinued_reason = fields.Char('Reason for discontinuation', size=128,
+    discontinued_reason = fields.Char('Reason for discontinuation',
                                       help="Short description for discontinuing the treatment")
     adverse_reaction = fields.Text('Adverse Reactions',
                                    help="Specific side effects or adverse reactions that the patient experienced")
@@ -1997,7 +1997,7 @@ class MedicalPrescriptionLine(models.Model):
     medicine_id = fields.Many2one('medical.medicine.prag', 'Medicine', required=True, ondelete="cascade")
     name = fields.Many2one('medical.prescription.order', 'Prescription ID')
     quantity = fields.Integer('Quantity', default=1)
-    note = fields.Char('Note', size=128, help='Short comment on the specific drug')
+    note = fields.Char('Note', help='Short comment on the specific drug')
     dose = fields.Float('Dose', help="Amount of medication (eg, 250 mg ) each time the patient takes it")
     dose_unit = fields.Many2one('medical.dose.unit', 'Dose Unit', help="Unit of measure for the medication to be taken")
     form = fields.Many2one('medical.drug.form', 'Form', help="Drug form, such as tablet or gel")
@@ -2021,20 +2021,20 @@ class MedicalHospitalBuilding(models.Model):
     _name = "medical.hospital.building"
     _description = "Medical hospital Building"
 
-    name = fields.Char('Name', size=128, required=True, help="Name of the building within the institution")
+    name = fields.Char('Name', required=True, help="Name of the building within the institution")
     institution = fields.Many2one('res.partner', 'Institution', domain=[('is_institution', '=', "1")],
                                   help="Medical Center")
-    code = fields.Char('Code', size=64)
+    code = fields.Char('Code')
     extra_info = fields.Text('Extra Info')
 
 
 class MedicalHospitalUnit(models.Model):
     _name = "medical.hospital.unit"
     _description = "Medical Hospital Unit"
-    name = fields.Char('Name', size=128, required=True, help="Name of the unit, eg Neonatal, Intensive Care, ...")
+    name = fields.Char('Name', required=True, help="Name of the unit, eg Neonatal, Intensive Care, ...")
     institution = fields.Many2one('res.partner', 'Institution', domain=[('is_institution', '=', "1")],
                                   help="Medical Center")
-    code = fields.Char('Code', size=64)
+    code = fields.Char('Code')
     extra_info = fields.Text('Extra Info')
 
 
@@ -2042,7 +2042,7 @@ class MedicalHospitalOpratingRoom(models.Model):
     _name = "medical.hospital.oprating.room"
     _description = "Medical Hospital Oprating room"
 
-    name = fields.Char('Name', size=128, required=True, help='Name of the Operating Room')
+    name = fields.Char('Name', required=True, help='Name of the Operating Room')
     institution = fields.Many2one('res.partner', 'Institution', domain=[('is_institution', '=', True)],
                                   help='Medical Center')
     building = fields.Many2one('medical.hospital.building', 'Building', index=True)
@@ -2057,8 +2057,8 @@ class MedicalProcedure(models.Model):
     _description = "Medical Procedure"
     _name = "medical.procedure"
 
-    name = fields.Char('Code', size=128, required=True)
-    description = fields.Char('Long Text', size=256)
+    name = fields.Char('Code', required=True)
+    description = fields.Char('Long Text')
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
@@ -2075,11 +2075,11 @@ class TeethCode(models.Model):
     _description = "teeth code"
     _name = "teeth.code"
 
-    name = fields.Char('Name', size=128, required=True)
-    code = fields.Char('Code', size=128, required=True)
-    palmer_name = fields.Char('palmer_name', size=128, required=True)
+    name = fields.Char('Name', required=True)
+    code = fields.Char('Code', required=True)
+    palmer_name = fields.Char('palmer_name', required=True)
     palmer_internal_id = fields.Integer('Palmar Internam ID')
-    iso = fields.Char('iso', size=128, required=True)
+    iso = fields.Char('iso', required=True)
     internal_id = fields.Integer('Internal IDS')
 
     def write(self, vals):
