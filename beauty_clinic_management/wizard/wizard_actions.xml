@@ -90,7 +90,7 @@
 					<group>
 						<group colspan="8">
 							<field name="appointment_id" readonly="1" force_save="1"/>
-							<field name="notes" required="1" force_save="1" attrs="{'readonly':[('is_notes','!=',False),('edit_notes','=',False)]}"/>
+							<field name="notes" required="1" force_save="1" readonly="is_notes != False and edit_notes == False"/>
 							<field name="edit_notes" force_save="1" invisible="1"/>
 							<field name="is_notes" force_save="1" invisible="1"/>
 						</group>
@@ -107,9 +107,9 @@
 						</field>
 					<footer>
 						<button name="action_create_notes" string="Submit"
-								type="object" class="oe_highlight" attrs="{'invisible':[('is_notes','!=',False),('edit_notes','=',False)]}"/>
+								type="object" class="oe_highlight" invisible="is_notes != False and edit_notes == False"/>
 						<button name="action_edit_notes" string="Edit"
-								type="object" class="oe_highlight" attrs="{'invisible':['|',('is_notes','=',False),('edit_notes','!=',False)]}"/>
+								type="object" class="oe_highlight" invisible="is_notes == False or edit_notes != False"/>
 						<button special="cancel" string="Cancel"
 							icon="fa-times-circle text-danger"/>
 					</footer>

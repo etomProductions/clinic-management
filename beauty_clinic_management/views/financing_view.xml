@@ -25,21 +25,21 @@
 					<field name="is_credit_card"/>
 				</group>
 				
-				<group attrs="{'invisible' : [('is_credit_card', '=', False)]}">
+				<group invisible="is_credit_card == False">
 					<field name="payment_by_cash_check" />
 					<field name="payment_by_credit_card"/>
 				</group>
 				
 				<newline/>
-				<separator string="Credit Card" attrs="{'invisible' : [('is_credit_card', '=', False)]}"/>
-				<group col="6" colspan="4" attrs="{'invisible' : [('is_credit_card', '=', False)]}">
+				<separator string="Credit Card" invisible="is_credit_card == False"/>
+				<group col="6" colspan="4" invisible="is_credit_card == False">
 				    <field name="credit_card_type" width="20%"/>
-				    <field name="credit_card_number" width="40%" nolabel="1" attrs="{'required':[('is_credit_card', '=', True)]}"/>
-				    <field name="expiry_month" width="5%" attrs="{'required':[('is_credit_card', '=', True)]}" placeholder="mm" string="Expiry Date" />
-			    	<field name="expiry_year" width="5%" attrs="{'required':[('is_credit_card', '=', True)]}" placeholder="yyyy" nolabel="1"/>
+				    <field name="credit_card_number" width="40%" nolabel="1" invisible="is_credit_card == True"/>
+				    <field name="expiry_month" width="5%" invisible="is_credit_card == True" placeholder="mm" string="Expiry Date" />
+			    	<field name="expiry_year" width="5%" invisible="is_credit_card == True" placeholder="yyyy" nolabel="1"/>
 			    </group>
 			    <group>
-				    <field name="name_as_appears_on_card" attrs="{'invisible' : [('is_credit_card', '=', False)], 'required':[('is_credit_card', '=', True)]}"/>
+				    <field name="name_as_appears_on_card" invisible="is_credit_card == False" required="is_credit_card == True"/>
 				</group>
 				
 				

@@ -115,7 +115,7 @@
                     <field name="invoice_balance_char"/>
                     <field name="is_invoice_state" invisible="1"/>
                     <field name="is_register_payment" invisible="1"/>
-                    <field name="invoice_state" attrs="{'invisible':[('is_invoice_state','=',False)]}"/>
+                    <field name="invoice_state" invisible="is_invoice_state in [False]"/>
                     <field name="invoice_id" invisible="1"/>
                 </calendar>
             </field>
@@ -131,28 +131,18 @@
                         <field name="active" widget="boolean_button"
                                options='{"terminology": "archive"}' invisible="1"/>
                     </div>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active is True"/>
                     <header>
                         <!-- <button name="sms_send" string="Send SmS" type="object" states="draft"/> -->
-                        <button name="confirm_appointment" string="Confirm" type="object"
-                                attrs="{'invisible': ['|',('patient_state', '=', 'withapt'),('state', 'in', ('sms_send', 'confirmed','missed','checkin','ready','done','cancel'))]}"/>
-                        <button name="send_state" string="Send SMS" type="object"
-                                attrs="{'invisible': ['|',('patient_state', '=', 'walkin'),('state', 'in', ('sms_send', 'confirmed','missed','checkin','ready','done','cancel'))]}"/>
-                        <button name="confirm" string="Confirm" type="object"
-                                states="sms_send"/>
-                        <button name="missed" string="Missed" type="object" states="confirmed"/>
-                        <button name="checkin" string="Checked In" type="object"
-                                states="confirmed"/>
-                        <button name="ready" string="In Chair" type="object"
-                                states="checkin"/>
-                        <button name="create_invoices" string="Create Invoice" type="object"
-                                attrs="{'invisible': ['|','|',('invoice_done', '=', True),('state', '!=',
-							'confirmed'),('no_invoice', '=', True)]}"/>
-                        <button name="done" string="Completed" type="object"
-                                states="ready"/>
-                        <button name="cancel" string="Cancel" type="object"
-                                states="draft,confirmed"/>
+                        <button name="confirm_appointment" string="Confirm" type="object" invisible="patient_state == 'withapt' | state in ['sms_send', 'confirmed','missed','checkin','ready','done','cancel']"/>
+                        <button name="send_state" string="Send SMS" type="object" invisible="patient_state == 'walkin' | state in ['sms_send', 'confirmed','missed','checkin','ready','done','cancel']"/>
+                        <button name="confirm" string="Confirm" type="object" invisible="state not in ['sms_send']"/>
+                        <button name="missed" string="Missed" type="object" invisible="state not in ['confirmed']"/>
+                        <button name="checkin" string="Checked In" type="object" invisible="state not in ['confirmed']"/>
+                        <button name="ready" string="In Chair" type="object" invisible="state not in ['checkin']"/>
+                        <button name="create_invoices" string="Create Invoice" type="object" invisible="invoice_done == True | state != 'confirmed' | no_invoice == True"/>
+                        <button name="done" string="Completed" type="object" invisible="state not in ['ready']"/>
+                        <button name="cancel" string="Cancel" type="object" invisible="state not in ['draft', 'confirmed']"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="draft,confirmed,checkin,ready,done"
                                statusbar_colors='{"confirmed":"blue","ready":"blue","cancel":"red"}'/>
@@ -349,8 +339,7 @@
                         <field name="active" widget="boolean_button"
                                options='{"terminology": "archive"}' invisible="1"/>
                     </div>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active == True"/>
 
                     <notebook>
                         <page string="Main Info">
@@ -560,8 +549,7 @@
                         <field name="end_treatment"/>
                         <field name="course_completed"/>
                         <field name="discontinued"/>
-                        <field name="discontinued_reason"
-                               attrs="{'invisible':[('discontinued','=',False)],'required':[('discontinued','=',True)]}"/>
+                        <field name="discontinued_reason" invisible="discontinued == False" required="discontinued == True"/>
 
                     </group>
                     <group colspan="4" string="Admnistration">
@@ -976,15 +964,12 @@
                 <form string="Patient">
                     <header>
                         <field name="active" invisible="True"/>
-                        <button name="blockpatient" type="object" string="Block"
-                                attrs="{'invisible': [('active', '=', False)]}"/>
-                        <button name="unblockpatient" type="object" string="Unblock"
-                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <button name="blockpatient" type="object" string="Block" invisible="active == False"/>
+                        <button name="unblockpatient" type="object" string="Unblock" invisible="active == True"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button name="get_invoices" type="object" class="oe_stat_button" icon="fa-pencil-square-o"
-                                    attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                            <button name="get_invoices" type="object" class="oe_stat_button" icon="fa-pencil-square-o" invisible="invoice_count == 0">
                                 <field name="invoice_count" widget="statinfo" string="Invoices"/>
                             </button>
 
@@ -1005,8 +990,7 @@
                                 <field name="civil_id"/>
                                 <field name="family_link"/>
                                 <field name="id" invisible="1"/>
-                                <field name="link_partner_id"
-                                       attrs="{'invisible':[('family_link','!=',True)],'required':[('family_link','=',True)]}"/>
+                                <field name="link_partner_id" invisible="family_link != True" required="family_link == True"/>
 
 
                             </group>
@@ -1042,8 +1026,7 @@
                                 <newline/>
                                 <group colspan="4" col="4">
                                     <field name="deceased"/>
-                                    <field name="dod"
-                                           attrs="{'invisible':[('deceased','=',False)],'required':[('deceased','=',True)]}"/>
+                                    <field name="dod" invisible="deceased != True" required="deceased == True"/>
                                 </group>
                             </page>
                             <page string="Medical Questionnaire">
@@ -1051,40 +1034,34 @@
                                     <field name="receiving_treatment"/>
                                     <newline/>
                                     <field name="receiving_medicine"/>
-                                    <field name="medicine_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('receiving_medicine', '!=', 'YES')]}"/>
+                                    <field name="medicine_yes" placeholder="Note...." nolabel="1" invisible="receiving_medicine != 'YES'"/>
                                     <newline/>
                                     <field name="have_card"/>
-                                    <field name="card_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('have_card', '!=', 'YES')]}"/>
+                                    <field name="card_yes" placeholder="Note...." nolabel="1" invisible="have_card != 'YES'"/>
                                     <newline/>
                                     <field name="have_allergies"/>
-                                    <field name="allergies_yes" placeholder="Note...."
-                                           nolabel="1" attrs="{'invisible':[('have_allergies', '!=', 'YES')]}"/>
+                                    <field name="allergies_yes" placeholder="Note...." invisible="have_allergies != 'YES'"/>
                                     <newline/>
                                     <field name="have_feaver"/>
                                     <newline/>
                                     <field name="have_ashtham"/>
                                     <newline/>
                                     <field name="have_attacks"/>
-                                    <field name="attacks_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('have_attacks', '!=', 'YES')]}"/>
+                                    <field name="attacks_yes" placeholder="Note...." nolabel="1" invisible="have_attacks != 'YES'"/>
                                     <newline/>
                                     <field name="have_heart"/>
-                                    <field name="heart_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('have_heart', '!=', 'YES')]}"/>
+                                    <field name="heart_yes" placeholder="Note...." nolabel="1" invisible="have_heart != 'YES'"/>
                                     <newline/>
                                     <field name="have_diabetic"/>
                                     <newline/>
                                     <field name="have_arthritis"/>
                                     <newline/>
                                     <field name="have_bleeding"/>
-                                    <field name="bleeding_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('have_bleeding', '!=', 'YES')]}"/>
+                                    <field name="bleeding_yes" placeholder="Note...." nolabel="1" invisible="have_bleeding != 'YES'"/>
                                     <newline/>
                                     <field name="have_infectious"/>
-                                    <field name="infectious_yes" placeholder="Note...."
-                                           nolabel="1" attrs="{'invisible':[('have_infectious', '!=', 'YES')]}"/>
+                                    <field name="infectious_yes" placeholder="Note...." invisible="have_infectious != 'YES'"
+                                           nolabel="1"/>
                                     <newline/>
                                     <field name="have_rheumatic"/>
                                     <newline/>
@@ -1093,12 +1070,10 @@
                                     <field name="have_serious"/>
                                     <newline/>
                                     <field name="have_reaction"/>
-                                    <field name="reaction_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('have_reaction', '!=', 'YES')]}"/>
+                                    <field name="reaction_yes" placeholder="Note...." nolabel="1" invisible="have_reaction != 'YES'"/>
                                     <newline/>
                                     <field name="have_surgery"/>
-                                    <field name="surgery_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('have_surgery', '!=', 'YES')]}"/>
+                                    <field name="surgery_yes" placeholder="Note...." nolabel="1" invisible="have_surgery != 'YES'"/>
                                     <newline/>
                                     <field name="have_tabacco"/>
                                     <newline/>
@@ -1107,23 +1082,20 @@
                                     <field name="have_medicine"/>
                                     <newline/>
                                     <field name="have_pregnant"/>
-                                    <field name="pregnant_yes" placeholder="Note...." nolabel="1"
-                                           attrs="{'invisible':[('have_pregnant', '!=', 'YES')]}"/>
+                                    <field name="pregnant_yes" placeholder="Note...." nolabel="1" invisible="have_pregnant != 'YES'"/>
                                     <newline/>
                                     <field name="have_breastfeeding"/>
                                     <newline/>
                                     <field name="updated_date"/>
                                 </group>
                             </page>
-                            <page string="Medical Alert"
-                                  attrs="{'invisible':['|',('critical_info', '!=', False),('medical_history','!=',False)]}">
+                            <page string="Medical Alert" invisible="critical_info != False or medical_history != False">
                                 <group colspan="4">
                                     <field name="critical_info_fun"/>
                                     <field name="medical_history_fun"/>
                                 </group>
                             </page>
-                            <page string="Medical  Alert" class="medical_alert_class"
-                                  attrs="{'invisible':[('critical_info', '=', False),('medical_history','=',False)]}">
+                            <page string="Medical  Alert" class="medical_alert_class" invisible="critical_info != False and medical_history != False">
                                 <group colspan="4">
                                     <field name="critical_info"/>
                                     <field name="medical_history"/>
@@ -1708,9 +1680,7 @@
             <field name="arch" type="xml">
                 <form string="Prescription">
                     <header>
-                        <button name="create_invoices" string="Create Invoice" type="object"
-                                attrs="{'invisible': ['|','|',('invoice_done', '=', True),('state', '=',
-							'invoiced'),('no_invoice', '=', True)]}"/>
+                        <button name="create_invoices" string="Create Invoice" type="object" invisible="invoice_done == True or state == 'invoiced' or no_invoice == True"/>
                         <field name="state" widget="statusbar" statusbar_visible="tobe,invoiced,cancel"/>
                     </header>
                     <sheet>
@@ -1872,8 +1842,7 @@
                             <field name="is_treatment"/>
                             <field name="is_planned_visit"/>
                             <field name="is_material"/>
-                            <field name="duration"
-                                   attrs="{'invisible':[('is_planned_visit','=',False)]}"/>
+                            <field name="duration" invisible="is_planned_visit == False"/>
                         </group>
                         <group>
                             <field name="insurance_company_id" domain="[('is_insurance_company','=',True)]"/>
@@ -2417,8 +2386,8 @@
         name="Calendar"
         sequence="1"
         action="calendar.action_calendar_event"
-        web_icon="calendar,static/description/icon.svg"
         groups="base.group_user"/>
+        <!--        web_icon="calendar,static/description/icon.svg"-->
 
         <menuitem action="action_patient_complaint" name="Patient Complaints"
                   id="patient_complaint_submenu" parent="medical_patients_menu"

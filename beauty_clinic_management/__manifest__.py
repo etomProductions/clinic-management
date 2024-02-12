@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 {
     'name': 'Odoo Beauty Clinic Management',
-    'version': '16.0.0.0',
+    'version': '1.0.0',
     'category': 'Services',
     'author': 'Pragmatic TechSoft Pvt Ltd.',
     'website': 'http://pragtech.co.in',
